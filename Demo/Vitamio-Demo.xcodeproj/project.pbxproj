@@ -1,0 +1,420 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F40EC4E2178A9B130068A7EA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F40EC4E1178A9B130068A7EA /* UIKit.framework */; };
+		F40EC4E4178A9B130068A7EA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F40EC4E3178A9B130068A7EA /* Foundation.framework */; };
+		F40EC4E6178A9B130068A7EA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F40EC4E5178A9B130068A7EA /* CoreGraphics.framework */; };
+		F40EC4EC178A9B130068A7EA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F40EC4EA178A9B130068A7EA /* InfoPlist.strings */; };
+		F40EC4EE178A9B130068A7EA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F40EC4ED178A9B130068A7EA /* main.m */; };
+		F40EC4F2178A9B130068A7EA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F40EC4F1178A9B130068A7EA /* AppDelegate.m */; };
+		F40EC4F4178A9B130068A7EA /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = F40EC4F3178A9B130068A7EA /* Default.png */; };
+		F40EC4F6178A9B130068A7EA /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F40EC4F5178A9B130068A7EA /* Default@2x.png */; };
+		F40EC4F8178A9B130068A7EA /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F40EC4F7178A9B130068A7EA /* Default-568h@2x.png */; };
+		F40EC4FB178A9B130068A7EA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F40EC4FA178A9B130068A7EA /* ViewController.m */; };
+		F40EC4FE178A9B130068A7EA /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F40EC4FC178A9B130068A7EA /* ViewController.xib */; };
+		F40EC531178AA5510068A7EA /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F40EC530178AA5510068A7EA /* OpenGLES.framework */; };
+		F40EC533178AA58D0068A7EA /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F40EC532178AA58D0068A7EA /* CoreVideo.framework */; };
+		F40EC535178AA5A60068A7EA /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F40EC534178AA5A60068A7EA /* CoreMedia.framework */; };
+		F40EC537178AA5AD0068A7EA /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F40EC536178AA5AD0068A7EA /* libz.dylib */; };
+		F40EC539178AA5B60068A7EA /* libbz2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F40EC538178AA5B60068A7EA /* libbz2.dylib */; };
+		F40EC53B178AA5C80068A7EA /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F40EC53A178AA5C80068A7EA /* AudioToolbox.framework */; };
+		F40EC53D178AA5E20068A7EA /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F40EC53C178AA5E20068A7EA /* MediaPlayer.framework */; };
+		F40EC53F178AA6070068A7EA /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F40EC53E178AA6070068A7EA /* AVFoundation.framework */; };
+		F40EC541178AA6150068A7EA /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F40EC540178AA6150068A7EA /* libiconv.dylib */; };
+		F40EC545178AA6B00068A7EA /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F40EC544178AA6B00068A7EA /* libstdc++.dylib */; };
+		F40EC546178AA6E70068A7EA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F40EC542178AA6610068A7EA /* QuartzCore.framework */; };
+		F40EC54B178AAE120068A7EA /* PlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = F40EC54A178AAE120068A7EA /* PlayerController.m */; };
+		F40EC54F178AB1F30068A7EA /* PlayerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F40EC54E178AB1F30068A7EA /* PlayerController.xib */; };
+		F4CA0509179D11380096D3C4 /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = F4CA0508179D11380096D3C4 /* Utilities.m */; };
+		F4CA050C179D11BA0096D3C4 /* VAppInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = F4CA050B179D11BA0096D3C4 /* VAppInfo.m */; };
+		F4FBBC39178ACD2000986F95 /* libVitamio.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F4FBBC38178ACD2000986F95 /* libVitamio.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		F40EC4DE178A9B130068A7EA /* Vitamio-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Vitamio-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F40EC4E1178A9B130068A7EA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		F40EC4E3178A9B130068A7EA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		F40EC4E5178A9B130068A7EA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		F40EC4E9178A9B130068A7EA /* Vitamio-Demo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Vitamio-Demo-Info.plist"; sourceTree = "<group>"; };
+		F40EC4EB178A9B130068A7EA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F40EC4ED178A9B130068A7EA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F40EC4EF178A9B130068A7EA /* Vitamio-Demo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Vitamio-Demo-Prefix.pch"; sourceTree = "<group>"; };
+		F40EC4F0178A9B130068A7EA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		F40EC4F1178A9B130068A7EA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		F40EC4F3178A9B130068A7EA /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		F40EC4F5178A9B130068A7EA /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		F40EC4F7178A9B130068A7EA /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		F40EC4F9178A9B130068A7EA /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		F40EC4FA178A9B130068A7EA /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		F40EC4FD178A9B130068A7EA /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+		F40EC530178AA5510068A7EA /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		F40EC532178AA58D0068A7EA /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		F40EC534178AA5A60068A7EA /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		F40EC536178AA5AD0068A7EA /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		F40EC538178AA5B60068A7EA /* libbz2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libbz2.dylib; path = usr/lib/libbz2.dylib; sourceTree = SDKROOT; };
+		F40EC53A178AA5C80068A7EA /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		F40EC53C178AA5E20068A7EA /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		F40EC53E178AA6070068A7EA /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		F40EC540178AA6150068A7EA /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
+		F40EC542178AA6610068A7EA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		F40EC544178AA6B00068A7EA /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
+		F40EC549178AAE120068A7EA /* PlayerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerController.h; sourceTree = "<group>"; };
+		F40EC54A178AAE120068A7EA /* PlayerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerController.m; sourceTree = "<group>"; };
+		F40EC54E178AB1F30068A7EA /* PlayerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerController.xib; sourceTree = "<group>"; };
+		F4CA0507179D11380096D3C4 /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
+		F4CA0508179D11380096D3C4 /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities.m; sourceTree = "<group>"; };
+		F4CA050A179D11BA0096D3C4 /* VAppInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAppInfo.h; sourceTree = "<group>"; };
+		F4CA050B179D11BA0096D3C4 /* VAppInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAppInfo.m; sourceTree = "<group>"; };
+		F4FBBC38178ACD2000986F95 /* libVitamio.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libVitamio.a; path = "../ios-vitamio/build/Debug-iphoneos/libVitamio.a"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F40EC4DB178A9B130068A7EA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F40EC546178AA6E70068A7EA /* QuartzCore.framework in Frameworks */,
+				F40EC545178AA6B00068A7EA /* libstdc++.dylib in Frameworks */,
+				F40EC541178AA6150068A7EA /* libiconv.dylib in Frameworks */,
+				F40EC53F178AA6070068A7EA /* AVFoundation.framework in Frameworks */,
+				F40EC53D178AA5E20068A7EA /* MediaPlayer.framework in Frameworks */,
+				F40EC53B178AA5C80068A7EA /* AudioToolbox.framework in Frameworks */,
+				F40EC539178AA5B60068A7EA /* libbz2.dylib in Frameworks */,
+				F40EC537178AA5AD0068A7EA /* libz.dylib in Frameworks */,
+				F40EC535178AA5A60068A7EA /* CoreMedia.framework in Frameworks */,
+				F40EC533178AA58D0068A7EA /* CoreVideo.framework in Frameworks */,
+				F40EC531178AA5510068A7EA /* OpenGLES.framework in Frameworks */,
+				F40EC4E2178A9B130068A7EA /* UIKit.framework in Frameworks */,
+				F40EC4E4178A9B130068A7EA /* Foundation.framework in Frameworks */,
+				F40EC4E6178A9B130068A7EA /* CoreGraphics.framework in Frameworks */,
+				F4FBBC39178ACD2000986F95 /* libVitamio.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F40EC4D5178A9B130068A7EA = {
+			isa = PBXGroup;
+			children = (
+				F40EC4E7178A9B130068A7EA /* Vitamio-Demo */,
+				F40EC4E8178A9B130068A7EA /* Supporting Files */,
+				F40EC4E0178A9B130068A7EA /* Frameworks */,
+				F40EC4DF178A9B130068A7EA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F40EC4DF178A9B130068A7EA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F40EC4DE178A9B130068A7EA /* Vitamio-Demo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F40EC4E0178A9B130068A7EA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F4FBBC38178ACD2000986F95 /* libVitamio.a */,
+				F40EC544178AA6B00068A7EA /* libstdc++.dylib */,
+				F40EC542178AA6610068A7EA /* QuartzCore.framework */,
+				F40EC540178AA6150068A7EA /* libiconv.dylib */,
+				F40EC53E178AA6070068A7EA /* AVFoundation.framework */,
+				F40EC53C178AA5E20068A7EA /* MediaPlayer.framework */,
+				F40EC53A178AA5C80068A7EA /* AudioToolbox.framework */,
+				F40EC538178AA5B60068A7EA /* libbz2.dylib */,
+				F40EC536178AA5AD0068A7EA /* libz.dylib */,
+				F40EC534178AA5A60068A7EA /* CoreMedia.framework */,
+				F40EC532178AA58D0068A7EA /* CoreVideo.framework */,
+				F40EC530178AA5510068A7EA /* OpenGLES.framework */,
+				F40EC4E1178A9B130068A7EA /* UIKit.framework */,
+				F40EC4E3178A9B130068A7EA /* Foundation.framework */,
+				F40EC4E5178A9B130068A7EA /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F40EC4E7178A9B130068A7EA /* Vitamio-Demo */ = {
+			isa = PBXGroup;
+			children = (
+				F4CA050D179D11BE0096D3C4 /* Utilities */,
+				F40EC4F0178A9B130068A7EA /* AppDelegate.h */,
+				F40EC4F1178A9B130068A7EA /* AppDelegate.m */,
+				F40EC4F9178A9B130068A7EA /* ViewController.h */,
+				F40EC4FA178A9B130068A7EA /* ViewController.m */,
+				F40EC4FC178A9B130068A7EA /* ViewController.xib */,
+				F40EC549178AAE120068A7EA /* PlayerController.h */,
+				F40EC54A178AAE120068A7EA /* PlayerController.m */,
+				F40EC54E178AB1F30068A7EA /* PlayerController.xib */,
+			);
+			path = "Vitamio-Demo";
+			sourceTree = "<group>";
+		};
+		F40EC4E8178A9B130068A7EA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F40EC4E9178A9B130068A7EA /* Vitamio-Demo-Info.plist */,
+				F40EC4EA178A9B130068A7EA /* InfoPlist.strings */,
+				F40EC4ED178A9B130068A7EA /* main.m */,
+				F40EC4EF178A9B130068A7EA /* Vitamio-Demo-Prefix.pch */,
+				F40EC4F3178A9B130068A7EA /* Default.png */,
+				F40EC4F5178A9B130068A7EA /* Default@2x.png */,
+				F40EC4F7178A9B130068A7EA /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			path = "Vitamio-Demo";
+			sourceTree = "<group>";
+		};
+		F4CA050D179D11BE0096D3C4 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				F4CA050A179D11BA0096D3C4 /* VAppInfo.h */,
+				F4CA050B179D11BA0096D3C4 /* VAppInfo.m */,
+				F4CA0507179D11380096D3C4 /* Utilities.h */,
+				F4CA0508179D11380096D3C4 /* Utilities.m */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F40EC4DD178A9B130068A7EA /* Vitamio-Demo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F40EC501178A9B130068A7EA /* Build configuration list for PBXNativeTarget "Vitamio-Demo" */;
+			buildPhases = (
+				F4983C2C178BFFA70066CFB7 /* ShellScript */,
+				F40EC4DA178A9B130068A7EA /* Sources */,
+				F40EC4DB178A9B130068A7EA /* Frameworks */,
+				F40EC4DC178A9B130068A7EA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Vitamio-Demo";
+			productName = "Vitamio-Demo";
+			productReference = F40EC4DE178A9B130068A7EA /* Vitamio-Demo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F40EC4D6178A9B130068A7EA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = yixia;
+			};
+			buildConfigurationList = F40EC4D9178A9B130068A7EA /* Build configuration list for PBXProject "Vitamio-Demo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = F40EC4D5178A9B130068A7EA;
+			productRefGroup = F40EC4DF178A9B130068A7EA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F40EC4DD178A9B130068A7EA /* Vitamio-Demo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F40EC4DC178A9B130068A7EA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F40EC4EC178A9B130068A7EA /* InfoPlist.strings in Resources */,
+				F40EC4F4178A9B130068A7EA /* Default.png in Resources */,
+				F40EC4F6178A9B130068A7EA /* Default@2x.png in Resources */,
+				F40EC4F8178A9B130068A7EA /* Default-568h@2x.png in Resources */,
+				F40EC4FE178A9B130068A7EA /* ViewController.xib in Resources */,
+				F40EC54F178AB1F30068A7EA /* PlayerController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		F4983C2C178BFFA70066CFB7 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "touch ./Vitamio-Demo/main.m";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F40EC4DA178A9B130068A7EA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F40EC4EE178A9B130068A7EA /* main.m in Sources */,
+				F40EC4F2178A9B130068A7EA /* AppDelegate.m in Sources */,
+				F40EC4FB178A9B130068A7EA /* ViewController.m in Sources */,
+				F40EC54B178AAE120068A7EA /* PlayerController.m in Sources */,
+				F4CA0509179D11380096D3C4 /* Utilities.m in Sources */,
+				F4CA050C179D11BA0096D3C4 /* VAppInfo.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		F40EC4EA178A9B130068A7EA /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F40EC4EB178A9B130068A7EA /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		F40EC4FC178A9B130068A7EA /* ViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F40EC4FD178A9B130068A7EA /* en */,
+			);
+			name = ViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F40EC4FF178A9B130068A7EA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		F40EC500178A9B130068A7EA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F40EC502178A9B130068A7EA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = armv7;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Vitamio-Demo/Vitamio-Demo-Prefix.pch";
+				INFOPLIST_FILE = "Vitamio-Demo/Vitamio-Demo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				LIBRARY_SEARCH_PATHS = (
+					"../../ios-vitamio/build/Debug-iphoneos",
+					../Vitamio,
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "../../ios-vitamio/build/Debug-iphoneos/include/Vitamio ../Vitamio/include/Vitamio";
+				VALID_ARCHS = armv7;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		F40EC503178A9B130068A7EA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = armv7;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Vitamio-Demo/Vitamio-Demo-Prefix.pch";
+				INFOPLIST_FILE = "Vitamio-Demo/Vitamio-Demo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				LIBRARY_SEARCH_PATHS = (
+					"../../ios-vitamio/build/Release-iphoneos",
+					../Vitamio,
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "../../ios-vitamio/build/Release-iphoneos/include/Vitamio ../Vitamio/include/Vitamio";
+				VALID_ARCHS = armv7;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F40EC4D9178A9B130068A7EA /* Build configuration list for PBXProject "Vitamio-Demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F40EC4FF178A9B130068A7EA /* Debug */,
+				F40EC500178A9B130068A7EA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F40EC501178A9B130068A7EA /* Build configuration list for PBXNativeTarget "Vitamio-Demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F40EC502178A9B130068A7EA /* Debug */,
+				F40EC503178A9B130068A7EA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F40EC4D6178A9B130068A7EA /* Project object */;
+}

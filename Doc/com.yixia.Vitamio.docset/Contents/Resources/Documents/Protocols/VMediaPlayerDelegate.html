@@ -1,0 +1,1380 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
+		<title>VMediaPlayerDelegate Protocol Reference</title>
+		<meta id="xcode-display" name="xcode-display" content="render"/>
+		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
+		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
+		<meta name="generator" content="appledoc 2.1 (build 858)" />
+	</head>
+	<body>
+		<header id="top_header">
+			<div id="library" class="hideInXcode">
+				<h1><a id="libraryTitle" href="../index.html">Vitamio </a></h1>
+				<a id="developerHome" href="../index.html">YiXia.com</a>
+			</div>
+			
+			<div id="title" role="banner">
+				<h1 class="hideInXcode">VMediaPlayerDelegate Protocol Reference</h1>
+			</div>
+			<ul id="headerButtons" role="toolbar">
+				<li id="toc_button">
+					<button aria-label="Show Table of Contents" role="checkbox" class="open" id="table_of_contents"><span class="disclosure"></span>Table of Contents</button>
+				</li>
+				<li id="jumpto_button" role="navigation">
+					<select id="jumpTo">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+	
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<option value="instance_methods">Instance Methods</option>
+	
+	<option value="//api/name/mediaPlayer:didPrepared:">&nbsp;&nbsp;&nbsp;&nbsp;- mediaPlayer:didPrepared:</option>
+	
+	<option value="//api/name/mediaPlayer:playbackComplete:">&nbsp;&nbsp;&nbsp;&nbsp;- mediaPlayer:playbackComplete:</option>
+	
+	<option value="//api/name/mediaPlayer:error:">&nbsp;&nbsp;&nbsp;&nbsp;- mediaPlayer:error:</option>
+	
+	<option value="//api/name/mediaPlayer:setupManagerPreference:">&nbsp;&nbsp;&nbsp;&nbsp;- mediaPlayer:setupManagerPreference:</option>
+	
+	<option value="//api/name/mediaPlayer:setupPlayerPreference:">&nbsp;&nbsp;&nbsp;&nbsp;- mediaPlayer:setupPlayerPreference:</option>
+	
+	<option value="//api/name/mediaPlayer:decodingSchemeChanged:">&nbsp;&nbsp;&nbsp;&nbsp;- mediaPlayer:decodingSchemeChanged:</option>
+	
+	<option value="//api/name/mediaPlayer:seekComplete:">&nbsp;&nbsp;&nbsp;&nbsp;- mediaPlayer:seekComplete:</option>
+	
+	<option value="//api/name/mediaPlayer:notSeekable:">&nbsp;&nbsp;&nbsp;&nbsp;- mediaPlayer:notSeekable:</option>
+	
+	<option value="//api/name/mediaPlayer:videoTrackLagging:">&nbsp;&nbsp;&nbsp;&nbsp;- mediaPlayer:videoTrackLagging:</option>
+	
+	<option value="//api/name/mediaPlayer:downloadRate:">&nbsp;&nbsp;&nbsp;&nbsp;- mediaPlayer:downloadRate:</option>
+	
+	<option value="//api/name/mediaPlayer:info:">&nbsp;&nbsp;&nbsp;&nbsp;- mediaPlayer:info:</option>
+	
+	<option value="//api/name/mediaPlayer:bufferingStart:">&nbsp;&nbsp;&nbsp;&nbsp;- mediaPlayer:bufferingStart:</option>
+	
+	<option value="//api/name/mediaPlayer:bufferingUpdate:">&nbsp;&nbsp;&nbsp;&nbsp;- mediaPlayer:bufferingUpdate:</option>
+	
+	<option value="//api/name/mediaPlayer:bufferingEnd:">&nbsp;&nbsp;&nbsp;&nbsp;- mediaPlayer:bufferingEnd:</option>
+	
+	<option value="//api/name/mediaPlayer:cacheNotAvailable:">&nbsp;&nbsp;&nbsp;&nbsp;- mediaPlayer:cacheNotAvailable:</option>
+	
+	<option value="//api/name/mediaPlayer:cacheUpdate:">&nbsp;&nbsp;&nbsp;&nbsp;- mediaPlayer:cacheUpdate:</option>
+	
+	<option value="//api/name/mediaPlayer:cacheSpeed:">&nbsp;&nbsp;&nbsp;&nbsp;- mediaPlayer:cacheSpeed:</option>
+	
+	<option value="//api/name/mediaPlayer:cacheComplete:">&nbsp;&nbsp;&nbsp;&nbsp;- mediaPlayer:cacheComplete:</option>
+	
+	
+	
+</select>
+				</li>
+			</ul>
+		</header>
+		<nav id="tocContainer" class="isShowingTOC">
+			<ul id="toc" role="tree">
+				
+<li role="treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#overview">Overview</a></span></li>
+
+
+
+
+<li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
+	
+</ul></li>
+
+
+
+
+
+
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/mediaPlayer:didPrepared:">mediaPlayer:didPrepared:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/mediaPlayer:playbackComplete:">mediaPlayer:playbackComplete:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/mediaPlayer:error:">mediaPlayer:error:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/mediaPlayer:setupManagerPreference:">mediaPlayer:setupManagerPreference:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/mediaPlayer:setupPlayerPreference:">mediaPlayer:setupPlayerPreference:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/mediaPlayer:decodingSchemeChanged:">mediaPlayer:decodingSchemeChanged:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/mediaPlayer:seekComplete:">mediaPlayer:seekComplete:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/mediaPlayer:notSeekable:">mediaPlayer:notSeekable:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/mediaPlayer:videoTrackLagging:">mediaPlayer:videoTrackLagging:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/mediaPlayer:downloadRate:">mediaPlayer:downloadRate:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/mediaPlayer:info:">mediaPlayer:info:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/mediaPlayer:bufferingStart:">mediaPlayer:bufferingStart:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/mediaPlayer:bufferingUpdate:">mediaPlayer:bufferingUpdate:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/mediaPlayer:bufferingEnd:">mediaPlayer:bufferingEnd:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/mediaPlayer:cacheNotAvailable:">mediaPlayer:cacheNotAvailable:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/mediaPlayer:cacheUpdate:">mediaPlayer:cacheUpdate:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/mediaPlayer:cacheSpeed:">mediaPlayer:cacheSpeed:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/mediaPlayer:cacheComplete:">mediaPlayer:cacheComplete:</a></span></li>
+	
+</ul></li>
+
+
+			</ul>
+		</nav>
+		<article>
+			<div id="contents" class="isShowingTOC" role="main">
+				<a title="VMediaPlayerDelegate Protocol Reference" name="top"></a>
+				<div class="main-navigation navigation-top">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="header">
+					<div class="section-header">
+						<h1 class="title title-header">VMediaPlayerDelegate Protocol Reference</h1>
+					</div>		
+				</div>
+				<div id="container">	
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<td class="specification-title">Conforms to</td>
+	<td class="specification-value">NSObject</td>
+</tr><tr>
+	<td class="specification-title">Declared in</td>
+	<td class="specification-value">VMediaPlayerDelegate.h</td>
+</tr>
+						</tbody></table></div>
+					
+					
+					
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>Media player delegate.</p>
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						<h2 class="subtitle subtitle-tasks">Tasks</h2>
+						
+						
+						
+						
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/mediaPlayer:didPrepared:">&ndash;&nbsp;mediaPlayer:didPrepared:</a></code>
+	</span>
+	
+	<span class="task-item-suffix">required method</span>
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/mediaPlayer:playbackComplete:">&ndash;&nbsp;mediaPlayer:playbackComplete:</a></code>
+	</span>
+	
+	<span class="task-item-suffix">required method</span>
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/mediaPlayer:error:">&ndash;&nbsp;mediaPlayer:error:</a></code>
+	</span>
+	
+	<span class="task-item-suffix">required method</span>
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/mediaPlayer:setupManagerPreference:">&ndash;&nbsp;mediaPlayer:setupManagerPreference:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/mediaPlayer:setupPlayerPreference:">&ndash;&nbsp;mediaPlayer:setupPlayerPreference:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/mediaPlayer:decodingSchemeChanged:">&ndash;&nbsp;mediaPlayer:decodingSchemeChanged:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/mediaPlayer:seekComplete:">&ndash;&nbsp;mediaPlayer:seekComplete:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/mediaPlayer:notSeekable:">&ndash;&nbsp;mediaPlayer:notSeekable:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/mediaPlayer:videoTrackLagging:">&ndash;&nbsp;mediaPlayer:videoTrackLagging:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/mediaPlayer:downloadRate:">&ndash;&nbsp;mediaPlayer:downloadRate:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/mediaPlayer:info:">&ndash;&nbsp;mediaPlayer:info:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/mediaPlayer:bufferingStart:">&ndash;&nbsp;mediaPlayer:bufferingStart:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/mediaPlayer:bufferingUpdate:">&ndash;&nbsp;mediaPlayer:bufferingUpdate:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/mediaPlayer:bufferingEnd:">&ndash;&nbsp;mediaPlayer:bufferingEnd:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/mediaPlayer:cacheNotAvailable:">&ndash;&nbsp;mediaPlayer:cacheNotAvailable:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/mediaPlayer:cacheUpdate:">&ndash;&nbsp;mediaPlayer:cacheUpdate:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/mediaPlayer:cacheSpeed:">&ndash;&nbsp;mediaPlayer:cacheSpeed:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/mediaPlayer:cacheComplete:">&ndash;&nbsp;mediaPlayer:cacheComplete:</a></code>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+					</div>
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Instance Methods" name="instance_methods"></a>
+						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/mediaPlayer:didPrepared:" title="mediaPlayer:didPrepared:"></a>
+	<h3 class="subsubtitle method-title">mediaPlayer:didPrepared:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Called when the player prepared.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)mediaPlayer:(VMediaPlayer *)<em>player</em> didPrepared:(id)<em>arg</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>player</em></dt>
+			<dd><p>The shared media player instance.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>arg</em></dt>
+			<dd><p>Not use.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">VMediaPlayerDelegate.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/mediaPlayer:playbackComplete:" title="mediaPlayer:playbackComplete:"></a>
+	<h3 class="subsubtitle method-title">mediaPlayer:playbackComplete:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Called when the player playback completed.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)mediaPlayer:(VMediaPlayer *)<em>player</em> playbackComplete:(id)<em>arg</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>player</em></dt>
+			<dd><p>The shared media player instance.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>arg</em></dt>
+			<dd><p>Not use.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">VMediaPlayerDelegate.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/mediaPlayer:error:" title="mediaPlayer:error:"></a>
+	<h3 class="subsubtitle method-title">mediaPlayer:error:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Called when the player have error occur.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)mediaPlayer:(VMediaPlayer *)<em>player</em> error:(id)<em>arg</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>player</em></dt>
+			<dd><p>The shared media player instance.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>arg</em></dt>
+			<dd><p>Contain the detail error information.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">VMediaPlayerDelegate.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/mediaPlayer:setupManagerPreference:" title="mediaPlayer:setupManagerPreference:"></a>
+	<h3 class="subsubtitle method-title">mediaPlayer:setupManagerPreference:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Called when set the data source to player.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)mediaPlayer:(VMediaPlayer *)<em>player</em> setupManagerPreference:(id)<em>arg</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>player</em></dt>
+			<dd><p>The shared media player instance.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>arg</em></dt>
+			<dd><p>Not use.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>You can tell media player manager what preference are you like in this call back method.
+e.g. set <code>player.decodingSchemeHint</code> or <code>player.autoSwitchDecodingScheme</code>,
+<code>player.useCache</code> ect.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">VMediaPlayerDelegate.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/mediaPlayer:setupPlayerPreference:" title="mediaPlayer:setupPlayerPreference:"></a>
+	<h3 class="subsubtitle method-title">mediaPlayer:setupPlayerPreference:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Called when the player begin prepare.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)mediaPlayer:(VMediaPlayer *)<em>player</em> setupPlayerPreference:(id)<em>arg</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>player</em></dt>
+			<dd><p>The shared media player instance.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>arg</em></dt>
+			<dd><p>Not use.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>You can tell media player what preference are you like in this call back method.
+e.g. set the video quality or buffer size, ect.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">VMediaPlayerDelegate.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/mediaPlayer:decodingSchemeChanged:" title="mediaPlayer:decodingSchemeChanged:"></a>
+	<h3 class="subsubtitle method-title">mediaPlayer:decodingSchemeChanged:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Called when the <a href="../Classes/VMediaPlayer.html">VMediaPlayer</a> try to open media strem with another decoding schmeme.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)mediaPlayer:(VMediaPlayer *)<em>player</em> decodingSchemeChanged:(id)<em>arg</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>player</em></dt>
+			<dd><p>The shared media player instance.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>arg</em></dt>
+			<dd><p><em>NSArray|NSNumber</em>, int value. Contain the old&amp;new decoding scheme.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>If <code>autoSwitchDecodingScheme' is YES and VMedaiPlayer failed to open stream with
+</code>decodingSchemeHint<code>scheme, </code>VMediaPlayer<code> will try to a new scheme, the old and new
+scheme return in</code>arg`.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">VMediaPlayerDelegate.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/mediaPlayer:seekComplete:" title="mediaPlayer:seekComplete:"></a>
+	<h3 class="subsubtitle method-title">mediaPlayer:seekComplete:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Called when the player seek completed.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)mediaPlayer:(VMediaPlayer *)<em>player</em> seekComplete:(id)<em>arg</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>player</em></dt>
+			<dd><p>The shared media player instance.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>arg</em></dt>
+			<dd><p>Not use.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">VMediaPlayerDelegate.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/mediaPlayer:notSeekable:" title="mediaPlayer:notSeekable:"></a>
+	<h3 class="subsubtitle method-title">mediaPlayer:notSeekable:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Called when the player seek failed.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)mediaPlayer:(VMediaPlayer *)<em>player</em> notSeekable:(id)<em>arg</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>player</em></dt>
+			<dd><p>The shared media player instance.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>arg</em></dt>
+			<dd><p>Not use.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">VMediaPlayerDelegate.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/mediaPlayer:videoTrackLagging:" title="mediaPlayer:videoTrackLagging:"></a>
+	<h3 class="subsubtitle method-title">mediaPlayer:videoTrackLagging:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Called when the video track is lagging than audio track.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)mediaPlayer:(VMediaPlayer *)<em>player</em> videoTrackLagging:(id)<em>arg</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>player</em></dt>
+			<dd><p>The shared media player instance.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>arg</em></dt>
+			<dd><p>Not use.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">VMediaPlayerDelegate.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/mediaPlayer:downloadRate:" title="mediaPlayer:downloadRate:"></a>
+	<h3 class="subsubtitle method-title">mediaPlayer:downloadRate:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Called when the download rate change.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)mediaPlayer:(VMediaPlayer *)<em>player</em> downloadRate:(id)<em>arg</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>player</em></dt>
+			<dd><p>The shared media player instance.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>arg</em></dt>
+			<dd><p><em>NSNumber</em> type, <em>int</em> value. The rate in KBytes/s.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>This method is only useful for online media stream.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">VMediaPlayerDelegate.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/mediaPlayer:info:" title="mediaPlayer:info:"></a>
+	<h3 class="subsubtitle method-title">mediaPlayer:info:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Called when the player have some other information occur.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)mediaPlayer:(VMediaPlayer *)<em>player</em> info:(id)<em>arg</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>player</em></dt>
+			<dd><p>The shared media player instance.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>arg</em></dt>
+			<dd><p>Contain the detail information.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">VMediaPlayerDelegate.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/mediaPlayer:bufferingStart:" title="mediaPlayer:bufferingStart:"></a>
+	<h3 class="subsubtitle method-title">mediaPlayer:bufferingStart:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Called when the player buffering start.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)mediaPlayer:(VMediaPlayer *)<em>player</em> bufferingStart:(id)<em>arg</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>player</em></dt>
+			<dd><p>The shared media player instance.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>arg</em></dt>
+			<dd><p>Not use.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">VMediaPlayerDelegate.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/mediaPlayer:bufferingUpdate:" title="mediaPlayer:bufferingUpdate:"></a>
+	<h3 class="subsubtitle method-title">mediaPlayer:bufferingUpdate:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Called when the player buffering progress changed.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)mediaPlayer:(VMediaPlayer *)<em>player</em> bufferingUpdate:(id)<em>arg</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>player</em></dt>
+			<dd><p>The shared media player instance.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>arg</em></dt>
+			<dd><p><em>NSNumber</em> type, <em>int</em> value. The progress percent of buffering.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">VMediaPlayerDelegate.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/mediaPlayer:bufferingEnd:" title="mediaPlayer:bufferingEnd:"></a>
+	<h3 class="subsubtitle method-title">mediaPlayer:bufferingEnd:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Called when the player buffering end.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)mediaPlayer:(VMediaPlayer *)<em>player</em> bufferingEnd:(id)<em>arg</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>player</em></dt>
+			<dd><p>The shared media player instance.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>arg</em></dt>
+			<dd><p>Not use.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">VMediaPlayerDelegate.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/mediaPlayer:cacheNotAvailable:" title="mediaPlayer:cacheNotAvailable:"></a>
+	<h3 class="subsubtitle method-title">mediaPlayer:cacheNotAvailable:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Called when player enable cache and can&rsquo;t cache this online media stream.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)mediaPlayer:(VMediaPlayer *)<em>player</em> cacheNotAvailable:(id)<em>arg</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>player</em></dt>
+			<dd><p>The shared media player instance.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>arg</em></dt>
+			<dd><p>Not use.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">VMediaPlayerDelegate.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/mediaPlayer:cacheUpdate:" title="mediaPlayer:cacheUpdate:"></a>
+	<h3 class="subsubtitle method-title">mediaPlayer:cacheUpdate:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Called when player enable cache and the cache progress changed.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)mediaPlayer:(VMediaPlayer *)<em>player</em> cacheUpdate:(id)<em>arg</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>player</em></dt>
+			<dd><p>The shared media player instance.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>arg</em></dt>
+			<dd><p><em>NSArray|NSNumber</em> type, <em>long long</em> value. The array of have cache segments.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">VMediaPlayerDelegate.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/mediaPlayer:cacheSpeed:" title="mediaPlayer:cacheSpeed:"></a>
+	<h3 class="subsubtitle method-title">mediaPlayer:cacheSpeed:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Called when player enable cache and cache speed changed.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)mediaPlayer:(VMediaPlayer *)<em>player</em> cacheSpeed:(id)<em>arg</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>player</em></dt>
+			<dd><p>The shared media player instance.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>arg</em></dt>
+			<dd><p><em>NSNumber</em> type, <em>int</em> value. The cache speed in KBytes/s.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">VMediaPlayerDelegate.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/mediaPlayer:cacheComplete:" title="mediaPlayer:cacheComplete:"></a>
+	<h3 class="subsubtitle method-title">mediaPlayer:cacheComplete:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Called when player enable cache and cache completed.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)mediaPlayer:(VMediaPlayer *)<em>player</em> cacheComplete:(id)<em>arg</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>player</em></dt>
+			<dd><p>The shared media player instance.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>arg</em></dt>
+			<dd><p>Not use.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">VMediaPlayerDelegate.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+				</div>
+				<div class="main-navigation navigation-bottom">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="footer">
+					<hr />
+					<div class="footer-copyright">
+						<p><span class="copyright">&copy; 2013 YiXia.com. All rights reserved. (Last updated: 2013-07-22)</span><br />
+						
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 858)</a>.</span></p>
+						
+					</div>
+				</div>
+			</div>
+		</article>
+		<script type="text/javascript">
+			function jumpToChange()
+			{
+				window.location.hash = this.options[this.selectedIndex].value;
+			}
+			
+			function toggleTOC()
+			{
+				var contents = document.getElementById('contents');
+				var tocContainer = document.getElementById('tocContainer');
+				
+				if (this.getAttribute('class') == 'open')
+				{
+					this.setAttribute('class', '');
+					contents.setAttribute('class', '');
+					tocContainer.setAttribute('class', '');
+					
+					window.name = "hideTOC";
+				}
+				else
+				{
+					this.setAttribute('class', 'open');
+					contents.setAttribute('class', 'isShowingTOC');
+					tocContainer.setAttribute('class', 'isShowingTOC');
+					
+					window.name = "";
+				}
+				return false;
+			}
+			
+			function toggleTOCEntryChildren(e)
+			{
+				e.stopPropagation();
+				var currentClass = this.getAttribute('class');
+				if (currentClass == 'children') {
+					this.setAttribute('class', 'children open');
+				}
+				else if (currentClass == 'children open') {
+					this.setAttribute('class', 'children');
+				}
+				return false;
+			}
+			
+			function tocEntryClick(e)
+			{
+				e.stopPropagation();
+				return true;
+			}
+			
+			function init()
+			{
+				var selectElement = document.getElementById('jumpTo');
+				selectElement.addEventListener('change', jumpToChange, false);
+				
+				var tocButton = document.getElementById('table_of_contents');
+				tocButton.addEventListener('click', toggleTOC, false);
+				
+				var taskTreeItem = document.getElementById('task_treeitem');
+				if (taskTreeItem.getElementsByTagName('li').length > 0)
+				{
+					taskTreeItem.setAttribute('class', 'children');
+					taskTreeItem.firstChild.setAttribute('class', 'disclosure');
+				}
+				
+				var tocList = document.getElementById('toc');
+				
+				var tocEntries = tocList.getElementsByTagName('li');
+				for (var i = 0; i < tocEntries.length; i++) {
+					tocEntries[i].addEventListener('click', toggleTOCEntryChildren, false);
+				}
+				
+				var tocLinks = tocList.getElementsByTagName('a');
+				for (var i = 0; i < tocLinks.length; i++) {
+					tocLinks[i].addEventListener('click', tocEntryClick, false);
+				}
+				
+				if (window.name == "hideTOC") {
+					toggleTOC.call(tocButton);
+				}
+			}
+			
+			window.onload = init;
+			
+			// If showing in Xcode, hide the TOC and Header
+			if (navigator.userAgent.match(/xcode/i)) {
+				document.getElementById("contents").className = "hideInXcode"
+				document.getElementById("tocContainer").className = "hideInXcode"
+				document.getElementById("top_header").className = "hideInXcode"
+			}
+			
+		</script>
+	</body>
+</html>
