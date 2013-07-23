@@ -1,4 +1,3 @@
-
 ************** Vitamio SDK for iOS User Manual **************
 
 * Version:				1.0
@@ -132,6 +131,7 @@ Vitamio SDK 依赖的系统框架和系统库如下:
 - 实现 VMediaPlayerDelegate 协议, 以获得'播放器准备完成'等通知
 
 >
+```ObjC
 	// 当'播放器准备完成'时, 该协议方法被调用, 我们可以在此调用 [player start]
 	// 来开始音视频的播放.
 	- (void)mediaPlayer:(VMediaPlayer *)player didPrepared:(id)arg
@@ -150,6 +150,7 @@ Vitamio SDK 依赖的系统框架和系统库如下:
 	{
 		NSLog(@"NAL 1RRE &&&& VMediaPlayer Error: %@", arg);
 	}
+```
 
 - 当不再使用播放器时, 可以调用 -unSetupPlayer 实例方法来取消注册播放器.
 
