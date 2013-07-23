@@ -47,9 +47,15 @@
 //	v = @"http://ipadlive.cntv.soooner.com/cctv_p2p_hdtaiqiu.m3u8";
 //	v = @"http://219.232.160.145:5080/livestream/esx7h676.ts"; // 打不开?
 //	v = @"http://119.97.131.69/hls/playlist.m3u8";
-	v = @"mms://cdnmms.cnr.cn/cnr001";
+//	v = @"mms://cdnmms.cnr.cn/cnr001";
+//	v = @"http://ndrstream.ic.llnwd.net/stream/ndrstream_ndr1wellenord_hi_mp3";
+//	v = @"http://94.242.221.141/hls/a-lo/stream140.m3u8";
+//	http://devimages.apple.com/iphone/samples/bipbop/bipbopall.m3u8 // contains multiple qualities
+	v = @"http://219.232.160.145:5080/livestream/rbvs3hxz.ts";
+
 
 	playerCtrl.videoURL = [NSURL URLWithString:v];
+
 
 	[self presentModalViewController:playerCtrl animated:YES];
 }
