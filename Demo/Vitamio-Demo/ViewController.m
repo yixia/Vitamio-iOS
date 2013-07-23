@@ -42,7 +42,7 @@
 	NSString *v = nil;
 
 //	v = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"video-demo.mkv"];
-//	v = @"http://meta.video.qiyi.com/242/de25dc2b5d385a8e27304d1e6dcd1a35.m3u8";
+	v = @"http://meta.video.qiyi.com/242/de25dc2b5d385a8e27304d1e6dcd1a35.m3u8";
 //	v = @"assets-library://asset/asset.MOV?id=112C86F5-1A5E-42EF-ADFA-0BE19C540665&ext=MOV";
 //	v = @"http://ipadlive.cntv.soooner.com/cctv_p2p_hdtaiqiu.m3u8";
 //	v = @"http://219.232.160.145:5080/livestream/esx7h676.ts"; // 打不开?
@@ -51,11 +51,9 @@
 //	v = @"http://ndrstream.ic.llnwd.net/stream/ndrstream_ndr1wellenord_hi_mp3";
 //	v = @"http://94.242.221.141/hls/a-lo/stream140.m3u8";
 //	http://devimages.apple.com/iphone/samples/bipbop/bipbopall.m3u8 // contains multiple qualities
-	v = @"http://219.232.160.145:5080/livestream/rbvs3hxz.ts";
-
+//	v = @"http://219.232.160.145:5080/livestream/rbvs3hxz.ts";
 
 	playerCtrl.videoURL = [NSURL URLWithString:v];
-
 
 	[self presentModalViewController:playerCtrl animated:YES];
 }
