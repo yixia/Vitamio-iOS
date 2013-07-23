@@ -99,8 +99,10 @@ Vitamio SDK 依赖的系统框架和系统库如下:
 - 对于已导入到应用文档目录的媒体文件, 可以用如下方法获取其路径:
 
 >
+```Objc
 	NSString *docDir = [NSString stringWithFormat:@"%@/Documents", NSHomeDirectory()];
     NSString *videoUrl = [NSString stringWithFormat:@"%@/%@", docDir, @"demo.mkv"];
+```
 
 - 对于网络视频流地址, 可直接获取, 如:
 
@@ -112,21 +114,27 @@ Vitamio SDK 依赖的系统框架和系统库如下:
 - 在您将要使用的Controller中声明使用 VMediaPlayerDelegate 协议
 
 >
+```Objc
 	@interface PlayerController : UIViewController <VMediaPlayerDelegate>
+```
 
 - 使用类 VMediaPlayer 的类方法 +sharedInstance 获取播放器共享实例, 然后调用实例
   方法 -setupPlayerWithCarrierView:withDelegate: 来注册使用播放器.
 
 >
+```Objc
 	mMPayer = [VMediaPlayer sharedInstance];
 	[mMPayer setupPlayerWithCarrierView:self.view withDelegate:self];
+```
 
 - 给播放器传入要播放的视频URL, 并告知其进行播放准备
 
 >
+```Objc
 	self.videoURL = [NSURL URLWithString:videoUrl];
     [mMPayer setDataSource:self.videoURL header:nil];
-    [mMPayer prepareAsync];
+    [mMPayer prepareAsync
+```
 
 - 实现 VMediaPlayerDelegate 协议, 以获得'播放器准备完成'等通知
 
@@ -155,7 +163,9 @@ Vitamio SDK 依赖的系统框架和系统库如下:
 - 当不再使用播放器时, 可以调用 -unSetupPlayer 实例方法来取消注册播放器.
 
 >
+```Objc
 	[mMPayer unSetupPlayer];
+```
 
 至此, Vitamio SDK 的快速入门就结束了, 更详细的代码及注释见 Vitamio-Demo 工程,
 其它 API 及协议的使用方法详见 "Vitamio SDK for iOS 参考文档".
