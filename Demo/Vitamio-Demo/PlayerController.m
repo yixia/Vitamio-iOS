@@ -40,6 +40,7 @@
 {
     [super viewDidLoad];
 
+	self.view.bounds = [[UIScreen mainScreen] bounds];
 	self.activityView = [[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:
 						  UIActivityIndicatorViewStyleWhiteLarge] autorelease];
 	[self.activityCarrier addSubview:self.activityView];
