@@ -19,12 +19,17 @@
 }
 
 @property (nonatomic, assign) IBOutlet UIButton *startPause;
+@property (nonatomic, assign) IBOutlet UIButton *prevBtn;
+@property (nonatomic, assign) IBOutlet UIButton *nextBtn;
+@property (nonatomic, assign) IBOutlet UIButton *modeBtn;
+@property (nonatomic, assign) IBOutlet UIButton *restartBtn;
 @property (nonatomic, assign) IBOutlet UISlider *progressSld;
 @property (nonatomic, assign) IBOutlet UILabel  *curPosLbl;
 @property (nonatomic, assign) IBOutlet UILabel  *durationLbl;
 @property (nonatomic, assign) IBOutlet UILabel  *bubbleMsgLbl;
 @property (nonatomic, assign) IBOutlet UIView  	*activityCarrier;
 
+@property (nonatomic, copy)   NSURL *videoURL;
 @property (nonatomic, retain) UIActivityIndicatorView *activityView;
 
 @end
@@ -54,7 +59,7 @@
 {
 	[super viewDidAppear:animated];
 
-	[self quicklyPlayMovie:self.videoURL title:nil seekToPos:0];
+	[self currButtonAction:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -96,6 +101,7 @@
 	mDuration = [player getDuration];
     [player start];
 
+	[self setBtnEnableStatus:YES];
 	[self stopActivity];
     mSyncSeekTimer = [NSTimer scheduledTimerWithTimeInterval:1.0/3
                                                       target:self
@@ -114,14 +120,20 @@
 	NSLog(@"NAL 1RRE &&&& VMediaPlayer Error: %@", arg);
 	[self stopActivity];
 	[self showVideoLoadingError];
+	[self setBtnEnableStatus:YES];
 }
 
 #pragma mark VMediaPlayerDelegate Implement / Optional
 
+- (void)mediaPlayer:(VMediaPlayer *)player setupManagerPreference:(id)arg
+{
+//	player.decodingSchemeHint = VMDecodingSchemeQuickTime;
+}
+
 - (void)mediaPlayer:(VMediaPlayer *)player setupPlayerPreference:(id)arg
 {
 	// Set buffer size, default is 1024KB(1*1024*1024).
-	[player setBufferSize:2*1024*1024];
+//	[player setBufferSize:2*1024*1024];
 }
 
 - (void)mediaPlayer:(VMediaPlayer *)player bufferingStart:(id)arg
@@ -158,9 +170,17 @@
 	[UIApplication sharedApplication].idleTimerDisabled = YES;
 	[[UIApplication sharedApplication] setStatusBarHidden:YES];
 
+	self.videoURL = fileURL;
+	[self setBtnEnableStatus:NO];
     [mMPayer setDataSource:self.videoURL header:nil];
     [mMPayer prepareAsync];
 	[self startActivityWithMsg:@"Loading..."];
+}
+
+-(void)quicklyReplayMovie:(NSURL*)fileURL title:(NSString*)title seekToPos:(long)pos
+{
+    [self quicklyStopMovie];
+    [self quicklyPlayMovie:fileURL title:title seekToPos:pos];
 }
 
 -(void)quicklyStopMovie
@@ -176,6 +196,8 @@
 
 
 #pragma mark - UI Actions
+
+#define DELEGATE_IS_READY(x) (self.delegate && [self.delegate respondsToSelector:@selector(x)])
 
 -(IBAction)goBackButtonAction:(id)sender
 {
@@ -195,6 +217,51 @@
 	}
 }
 
+-(void)currButtonAction:(id)sender
+{
+	NSURL *url = nil;
+	NSString *title = nil;
+	long lastPos = 0;
+	if (DELEGATE_IS_READY(playCtrlGetPrevMediaTitle:lastPlayPos:)) {
+		url = [self.delegate playCtrlGetCurrMediaTitle:&title lastPlayPos:&lastPos];
+	}
+	if (url) {
+		[self quicklyPlayMovie:url title:title seekToPos:lastPos];
+	} else {
+		NSLog(@"WARN: No previous media url found!");
+	}
+}
+
+-(IBAction)prevButtonAction:(id)sender
+{
+	NSURL *url = nil;
+	NSString *title = nil;
+	long lastPos = 0;
+	if (DELEGATE_IS_READY(playCtrlGetPrevMediaTitle:lastPlayPos:)) {
+		url = [self.delegate playCtrlGetPrevMediaTitle:&title lastPlayPos:&lastPos];
+	}
+	if (url) {
+		[self quicklyReplayMovie:url title:title seekToPos:lastPos];
+	} else {
+		NSLog(@"WARN: No previous media url found!");
+	}
+}
+
+-(IBAction)nextButtonAction:(id)sender
+{
+	NSURL *url = nil;
+	NSString *title = nil;
+	long lastPos = 0;
+	if (DELEGATE_IS_READY(playCtrlGetPrevMediaTitle:lastPlayPos:)) {
+		url = [self.delegate playCtrlGetNextMediaTitle:&title lastPlayPos:&lastPos];
+	}
+	if (url) {
+		[self quicklyReplayMovie:url title:title seekToPos:lastPos];
+	} else {
+		NSLog(@"WARN: No previous media url found!");
+	}
+}
+
 -(IBAction)switchVideoViewModeButtonAction:(id)sender
 {
 	static emVMVideoFillMode modes[] = {
@@ -211,8 +278,7 @@
 
 -(IBAction)restartButtonAction:(id)sender
 {
-	[self quicklyStopMovie];
-	[self quicklyPlayMovie:self.videoURL title:nil seekToPos:0];
+	[self quicklyReplayMovie:self.videoURL title:nil seekToPos:0];
 }
 
 -(IBAction)dragProgressSliderAction:(id)sender
@@ -247,6 +313,15 @@
 	self.bubbleMsgLbl.hidden = YES;
 	self.bubbleMsgLbl.text = nil;
 	[self.activityView stopAnimating];
+}
+
+-(void)setBtnEnableStatus:(BOOL)enable
+{
+	self.startPause.enabled = enable;
+	self.prevBtn.enabled = enable;
+	self.nextBtn.enabled = enable;
+	self.modeBtn.enabled = enable;
+	self.restartBtn.enabled = enable;
 }
 
 -(void)showVideoLoadingError

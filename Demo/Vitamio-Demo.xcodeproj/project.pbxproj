@@ -67,6 +67,7 @@
 		F40EC549178AAE120068A7EA /* PlayerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerController.h; sourceTree = "<group>"; };
 		F40EC54A178AAE120068A7EA /* PlayerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerController.m; sourceTree = "<group>"; };
 		F40EC54E178AB1F30068A7EA /* PlayerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerController.xib; sourceTree = "<group>"; };
+		F492ECF317A6209100F24AE1 /* PlayerControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerControllerDelegate.h; sourceTree = "<group>"; };
 		F4CA0507179D11380096D3C4 /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
 		F4CA0508179D11380096D3C4 /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities.m; sourceTree = "<group>"; };
 		F4CA050A179D11BA0096D3C4 /* VAppInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAppInfo.h; sourceTree = "<group>"; };
@@ -152,6 +153,7 @@
 				F40EC549178AAE120068A7EA /* PlayerController.h */,
 				F40EC54A178AAE120068A7EA /* PlayerController.m */,
 				F40EC54E178AB1F30068A7EA /* PlayerController.xib */,
+				F492ECF317A6209100F24AE1 /* PlayerControllerDelegate.h */,
 			);
 			path = "Vitamio-Demo";
 			sourceTree = "<group>";

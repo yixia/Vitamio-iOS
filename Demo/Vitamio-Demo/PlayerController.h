@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "Vitamio.h"
+#import "PlayerControllerDelegate.h"
 
 
 @interface PlayerController : UIViewController <VMediaPlayerDelegate>
 
-@property (nonatomic, copy)   NSURL *videoURL;
+@property (nonatomic, assign) id<PlayerControllerDelegate> delegate;
 
 @end
