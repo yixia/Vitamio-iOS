@@ -31,8 +31,6 @@ static NSString *sMediaURLs[] = {
 	@"http://devimages.apple.com/iphone/samples/bipbop/bipbopall.m3u8", // contains multiple qualities
 
 	@"http://159.226.15.215:8080/hls/zeiou/zeiou.m3u8",
-	@"http://www.tingshijie.com/d/ysxs/QMJDYH/2012-12-27/清明记第一回--雨落惊鸿.flv",
-	@"http://www.tingshijie.com/d/ysxs/SYCQDESJ/2013-02-01/声音传情第二十期.mp3",
 };
 
 static int sCurrPlayIdx;
