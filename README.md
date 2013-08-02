@@ -2,6 +2,10 @@
 
 Vitamio SDK for iOS
 
+[Quickly Start(zh)](https://github.com/yixia/Vitamio-iOS/blob/master/Doc/Vitamio_SDK_for_iOS_User_Manual_cn.md)
+[FAQ](https://github.com/yixia/Vitamio-iOS/blob/master/Doc/FAQ.md)
+[Change Log](https://github.com/yixia/Vitamio-iOS/blob/master/Vitamio/CHANGELOG.md)
+
 
 # Directory detail
 
