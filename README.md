@@ -1,6 +1,10 @@
 # Vitamio
 
-Vitamio SDK for iOS
+**Vitamio SDK for iOS**
+
+This project is an open multimedia framework for iOS, with full and
+real hardware accelerated decoder and renderer. With its simple, clean and
+powerful API.
 
 [Quickly Start(zh)][a1]  
 [FAQ][a2]  
