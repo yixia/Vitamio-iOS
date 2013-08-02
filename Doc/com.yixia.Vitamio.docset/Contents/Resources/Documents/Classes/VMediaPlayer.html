@@ -378,7 +378,7 @@
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p>The Vitamio main class that provide all control about play medias.</p>
+						<p>The <a href="../Classes/Vitamio.html">Vitamio</a> main class that provide all control about play medias.</p>
 					</div>
 					
 					
@@ -1548,7 +1548,7 @@ calling <a href="#//api/name/prepareAsync"><code>prepareAsync</code></a>.</p>
 	
 	<div class="method-subsection return">
 		<h4 class="method-subtitle parameter-title">Return Value</h4>
-		<p>The duration in milliseconds.</p>
+		<p>Returns the duration in milliseconds, or -1 if error occur.</p>
 	</div>
 	
 	
@@ -1589,7 +1589,7 @@ calling <a href="#//api/name/prepareAsync"><code>prepareAsync</code></a>.</p>
 	
 	<div class="method-subsection return">
 		<h4 class="method-subtitle parameter-title">Return Value</h4>
-		<p>The current position in milliseconds.</p>
+		<p>Returns the current position in milliseconds, or -1 if orror occur.</p>
 	</div>
 	
 	
@@ -1855,7 +1855,7 @@ calling <a href="#//api/name/prepareAsync"><code>prepareAsync</code></a>.</p>
 	
 	<div class="method-subsection return">
 		<h4 class="method-subtitle parameter-title">Return Value</h4>
-		<p>Returns the encoding</p>
+		<p>Returns the encoding of meta data, or nil if error occurs.</p>
 	</div>
 	
 	
@@ -1896,7 +1896,7 @@ calling <a href="#//api/name/prepareAsync"><code>prepareAsync</code></a>.</p>
 	
 	<div class="method-subsection return">
 		<h4 class="method-subtitle parameter-title">Return Value</h4>
-		<p>The metadata, possibly empty. nil if an error occurred.</p>
+		<p>Returns the metadata, possibly empty, or nil if errors occurred.</p>
 	</div>
 	
 	
@@ -1937,7 +1937,7 @@ calling <a href="#//api/name/prepareAsync"><code>prepareAsync</code></a>.</p>
 	
 	<div class="method-subsection return">
 		<h4 class="method-subtitle parameter-title">Return Value</h4>
-		<p>the size in bytes.</p>
+		<p>Return the size in bytes, or -1 if error occurs.</p>
 	</div>
 	
 	
@@ -2034,7 +2034,9 @@ calling <a href="#//api/name/prepareAsync"><code>prepareAsync</code></a>.</p>
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
 		<ul>
-<li>@return Array of video track info. The total number of tracks is the array length.</li>
+<li>@return Returns Array of video track info. The total number of tracks is the array length;</li>
+<li><pre><code>  if error occurs, nil is returned.
+</code></pre></li>
 </ul>
 
 	</div>
@@ -2138,7 +2140,7 @@ calling <a href="#//api/name/prepareAsync"><code>prepareAsync</code></a>.</p>
 	
 	<div class="method-subsection return">
 		<h4 class="method-subtitle parameter-title">Return Value</h4>
-		<p>Returns the video track index play currently.</p>
+		<p>Returns the video track index play currently, or -1 if error occurs.</p>
 	</div>
 	
 	
@@ -2412,7 +2414,7 @@ width and height is not available.</p>
 	
 	<div class="method-subsection return">
 		<h4 class="method-subtitle parameter-title">Return Value</h4>
-		<p>Return the UIImage object.</p>
+		<p>Return the UIImage object, or nil if error occurs.</p>
 	</div>
 	
 	
@@ -2453,8 +2455,8 @@ width and height is not available.</p>
 	
 	<div class="method-subsection return">
 		<h4 class="method-subtitle parameter-title">Return Value</h4>
-		<p>Returns array of audio track info. The total number of tracks is the array length.
-Returns nil if the current decoding scheme is not support get audio track info.</p>
+		<p>Returns array of audio track info. The total number of tracks is the array length;
+returns nil if the current decoding scheme is not support get audio track info.</p>
 	</div>
 	
 	
@@ -2578,7 +2580,7 @@ for (NSDictionary *track in tracks) {
 	
 	<div class="method-subsection return">
 		<h4 class="method-subtitle parameter-title">Return Value</h4>
-		<p>Returns the audio track index play currently.</p>
+		<p>Returns the audio track index play currently, or -1 if error occurs.</p>
 	</div>
 	
 	
@@ -2909,7 +2911,8 @@ for (NSDictionary *track in tracks) {
 	
 	<div class="method-subsection return">
 		<h4 class="method-subtitle parameter-title">Return Value</h4>
-		<p>Array of subtitle track info. The total number of tracks is the array length.</p>
+		<p>Return array of subtitle track info, The total number of tracks is the array length;
+if error occurs, nil is returned.</p>
 	</div>
 	
 	
@@ -3020,7 +3023,7 @@ for (NSDictionary *track in tracks) {
 	
 	<div class="method-subsection return">
 		<h4 class="method-subtitle parameter-title">Return Value</h4>
-		<p>Returns the subtitle track index play currently.</p>
+		<p>Returns the subtitle track index play currently, -1 if error occurs.</p>
 	</div>
 	
 	
@@ -3078,6 +3081,11 @@ It will contain in the array return by follow called <a href="#//api/name/getSub
 	</div>
 	
 	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>Returns YES or NO if error occurs.</p>
+	</div>
 	
 	
 	
@@ -3651,7 +3659,7 @@ so you need use this method to set the right aspect ratio for media player.</p>
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 YiXia.com. All rights reserved. (Last updated: 2013-07-22)</span><br />
+						<p><span class="copyright">&copy; 2013 YiXia.com. All rights reserved. (Last updated: 2013-08-02)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 858)</a>.</span></p>
 						

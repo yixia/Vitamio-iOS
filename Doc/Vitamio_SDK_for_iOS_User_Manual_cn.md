@@ -133,7 +133,7 @@ Vitamio SDK 依赖的系统框架和系统库如下:
 ```Objc
 	self.videoURL = [NSURL URLWithString:videoUrl];
     [mMPayer setDataSource:self.videoURL header:nil];
-    [mMPayer prepareAsync
+    [mMPayer prepareAsync];
 ```
 
 - 实现 VMediaPlayerDelegate 协议, 以获得'播放器准备完成'等通知

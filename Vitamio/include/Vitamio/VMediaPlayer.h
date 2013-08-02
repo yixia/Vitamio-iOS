@@ -157,14 +157,14 @@
 /**
  * Gets the duration of the media.
  *
- * @return The duration in milliseconds.
+ * @return Returns the duration in milliseconds, or -1 if error occur.
  */
 - (long)getDuration;
 
 /**
  * Gets the current playback position.
  *
- * @return The current position in milliseconds.
+ * @return Returns the current position in milliseconds, or -1 if orror occur.
  */
 - (long)getCurrentPosition;
 
@@ -206,21 +206,21 @@
 /**
  * Get the encoding if haven't set with `setMetaEncoding:`
  *
- * @return Returns the encoding
+ * @return Returns the encoding of meta data, or nil if error occurs.
  */
 - (NSString *)getMetaEncoding;
 
 /**
  * Gets the media metadata.
  *
- * @return The metadata, possibly empty. nil if an error occurred.
+ * @return Returns the metadata, possibly empty, or nil if errors occurred.
  */
 - (NSDictionary *)getMetadata;
 
 /**
  * Gets the size on disk of the media.
  *
- * @return the size in bytes.
+ * @return Return the size in bytes, or -1 if error occurs.
  */
 - (long long)getDiskSize;
 
@@ -243,7 +243,8 @@
  *
  * The usage see in `getAudioTracksArray`.
 
- * @return Array of video track info. The total number of tracks is the array length.
+ * @return Returns Array of video track info. The total number of tracks is the array length;
+ *         if error occurs, nil is returned.
  */
 - (NSArray *)getVideoTracksArray;
 
@@ -261,7 +262,7 @@
 /**
  * Get the video track index of player play currently.
  *
- * @return Returns the video track index play currently.
+ * @return Returns the video track index play currently, or -1 if error occurs.
  * @see getVideoTracksArray
  */
 - (int)getVideoTrackCurrentArrayIndex;
@@ -311,7 +312,7 @@
 /**
  * Get the current video frame.
  *
- * @return Return the UIImage object.
+ * @return Return the UIImage object, or nil if error occurs.
  */
 - (UIImage *)getCurrentFrame;
 
@@ -339,8 +340,8 @@
  * 		);
  *	 }
  *
- * @return Returns array of audio track info. The total number of tracks is the array length.
- *         Returns nil if the current decoding scheme is not support get audio track info.
+ * @return Returns array of audio track info. The total number of tracks is the array length;
+ *         returns nil if the current decoding scheme is not support get audio track info.
  */
 - (NSArray *)getAudioTracksArray;
 
@@ -358,7 +359,7 @@
 /**
  * Get the audio track index of player play currently.
  *
- * @return Returns the audio track index play currently.
+ * @return Returns the audio track index play currently, or -1 if error occurs.
  * @see getAudioTracksArray
  */
 - (int)getAudioTrackCurrentArrayIndex;
@@ -419,7 +420,8 @@
  *
  * The usage see in `getAudioTracksArray`.
  *
- * @return Array of subtitle track info. The total number of tracks is the array length.
+ * @return Return array of subtitle track info, The total number of tracks is the array length;
+ *         if error occurs, nil is returned.
  */
 - (NSArray *)getSubTracksArray;
 
@@ -437,7 +439,7 @@
 /**
  * Get the subtitle track index of player play currently.
  *
- * @return Returns the subtitle track index play currently.
+ * @return Returns the subtitle track index play currently, -1 if error occurs.
  * @see getSubTracksArray
  */
 - (int)getSubTrackCurrentArrayIndex;
@@ -447,6 +449,7 @@
  * It will contain in the array return by follow called `getSubTracksArray`.
  *
  * @param path The path of external subtitle to add.
+ * @return Returns YES or NO if error occurs.
  * @see getSubTracksArray
  */
 - (BOOL)addSubTrackToArrayWithPath:(NSString *)path;
