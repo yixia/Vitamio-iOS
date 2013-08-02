@@ -33,6 +33,8 @@
 		F40EC54F178AB1F30068A7EA /* PlayerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F40EC54E178AB1F30068A7EA /* PlayerController.xib */; };
 		F4CA0509179D11380096D3C4 /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = F4CA0508179D11380096D3C4 /* Utilities.m */; };
 		F4CA050C179D11BA0096D3C4 /* VAppInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = F4CA050B179D11BA0096D3C4 /* VAppInfo.m */; };
+		F4CFC95F17AB5BFA00C67F7C /* libffmpeg.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F4CFC95E17AB5BFA00C67F7C /* libffmpeg.a */; };
+		F4CFC96117AB5C0F00C67F7C /* libopenssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F4CFC96017AB5C0F00C67F7C /* libopenssl.a */; };
 		F4FBBC39178ACD2000986F95 /* libVitamio.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F4FBBC38178ACD2000986F95 /* libVitamio.a */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +74,8 @@
 		F4CA0508179D11380096D3C4 /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities.m; sourceTree = "<group>"; };
 		F4CA050A179D11BA0096D3C4 /* VAppInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAppInfo.h; sourceTree = "<group>"; };
 		F4CA050B179D11BA0096D3C4 /* VAppInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAppInfo.m; sourceTree = "<group>"; };
+		F4CFC95E17AB5BFA00C67F7C /* libffmpeg.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libffmpeg.a; path = ../../ffmpegmirror/build/ios/20130802T105430/release/universal/lib/libffmpeg.a; sourceTree = "<group>"; };
+		F4CFC96017AB5C0F00C67F7C /* libopenssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopenssl.a; path = ../../opensslmirror/build/ios/release/universal/lib/libopenssl.a; sourceTree = "<group>"; };
 		F4FBBC38178ACD2000986F95 /* libVitamio.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libVitamio.a; path = "../ios-vitamio/build/Debug-iphoneos/libVitamio.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -95,6 +99,8 @@
 				F40EC4E4178A9B130068A7EA /* Foundation.framework in Frameworks */,
 				F40EC4E6178A9B130068A7EA /* CoreGraphics.framework in Frameworks */,
 				F4FBBC39178ACD2000986F95 /* libVitamio.a in Frameworks */,
+				F4CFC95F17AB5BFA00C67F7C /* libffmpeg.a in Frameworks */,
+				F4CFC96117AB5C0F00C67F7C /* libopenssl.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -122,6 +128,8 @@
 		F40EC4E0178A9B130068A7EA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F4CFC96017AB5C0F00C67F7C /* libopenssl.a */,
+				F4CFC95E17AB5BFA00C67F7C /* libffmpeg.a */,
 				F4FBBC38178ACD2000986F95 /* libVitamio.a */,
 				F40EC544178AA6B00068A7EA /* libstdc++.dylib */,
 				F40EC542178AA6610068A7EA /* QuartzCore.framework */,
@@ -356,20 +364,22 @@
 		F40EC502178A9B130068A7EA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = armv7;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Vitamio-Demo/Vitamio-Demo-Prefix.pch";
 				INFOPLIST_FILE = "Vitamio-Demo/Vitamio-Demo-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = (
+					../../ffmpegmirror/build/ios/built/debug/universal/lib,
+					../../opensslmirror/build/ios/release/universal/lib,
 					"../../ios-vitamio/build/Debug-iphoneos",
 					../Vitamio,
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
-				USER_HEADER_SEARCH_PATHS = "../../ios-vitamio/build/Debug-iphoneos/include/Vitamio ../Vitamio/include/Vitamio";
-				VALID_ARCHS = armv7;
+				USER_HEADER_SEARCH_PATHS = "../../ios-vitamio/build/Debug-iphoneos/include/Vitamio ../../ios-vitamio/build/Debug-iphonesimulator/include/Vitamio ../Vitamio/include/Vitamio";
+				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -377,20 +387,22 @@
 		F40EC503178A9B130068A7EA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = armv7;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Vitamio-Demo/Vitamio-Demo-Prefix.pch";
 				INFOPLIST_FILE = "Vitamio-Demo/Vitamio-Demo-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = (
+					../../ffmpegmirror/build/ios/built/release/universal/lib,
+					../../opensslmirror/build/ios/release/universal/lib,
 					"../../ios-vitamio/build/Release-iphoneos",
 					../Vitamio,
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
-				USER_HEADER_SEARCH_PATHS = "../../ios-vitamio/build/Release-iphoneos/include/Vitamio ../Vitamio/include/Vitamio";
-				VALID_ARCHS = armv7;
+				USER_HEADER_SEARCH_PATHS = "../../ios-vitamio/build/Release-iphoneos/include/Vitamio ../../ios-vitamio/build/Release-iphonesimulator/include/Vitamio ../Vitamio/include/Vitamio";
+				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
