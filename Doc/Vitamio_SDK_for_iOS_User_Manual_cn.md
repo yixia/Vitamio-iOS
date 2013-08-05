@@ -1,17 +1,16 @@
 ************** Vitamio SDK for iOS User Manual **************
 
-* Version:				1.0
-* Release date:			2013-07-12
+* Version:				1.1.0
+* Release date:			2013-08-05
 
 
 # 简介
 
-Vitamio SDK iOS 版本是 yixia.com 官方推出的iOS平台使用的软件开发工具包(SDK),
-为iOS开发者提供简单, 快捷的接口, 帮助开发者实现iOS平台上的媒体播放应用开发.
+**Vitamio SDK for iOS** 是[Yixia Ltd][d1]官方推出的 iOS 平台上使用的软件开发工
+具包(SDK), 为 iOS 开发者提供简单, 快捷的接口, 帮助开发者实现 iOS 平台上的媒体
+播放应用.
 
-Vitamio ...
-
-Vitamio 完整下载包是 Vitamio-SDKs-iOS-*.tar.zip, 解压缩后包含 Demo, Vitamio,
+Vitamio 完整下载包是 Vitamio-iOS-`version`.zip, 解压缩后包含 Demo, Vitamio,
 Doc 三个部分, 解压后的目录结构如下所示:
 
 >
@@ -28,15 +27,11 @@ Doc 三个部分, 解压后的目录结构如下所示:
 
 # Vitamio SDK 功能说明
 
-Vitamio SDK ...
-
->
 - 本地全媒体格式支持, 并对主流的媒体格式(mp4, avi, wmv, flv, mkv, mov, rmvb 等
-  )进行优化
-- 支持广泛的流式视频格式, HLS, RTMP, HTTP Rseudo-Streaming 等
-- 性能强大, 资源CPU/内存占用率低, 充分利用 iPhone/iPod/iPad/Apple TV 视频硬解
-  能力
-- API 简单易用, 可扩展, 高度灵活
+  )进行优化;
+- 支持广泛的流式视频格式, HLS, RTMP, HTTP Rseudo-Streaming 等;
+- 性能强大, 资源CPU/内存占用率低, 充分利用 iPhone/iPod Touch/iPad 视频硬解能力;
+- API 简单易用, 可扩展, 高度灵活.
 
 
 # Vitamio SDK 快速入门
@@ -45,17 +40,12 @@ Vitamio SDK ...
 
 ## 运行环境
 
-Vitamio SDK for iOS 可运行于 iOS 4.3 及以上版本.
+Vitamio SDK for iOS 可运行于 iPhone/iPod Touch/iPad, 支持 iOS 4.3 及以上版本;
+支持 armv7/armv7s/i386(模拟器).
 
-## 新建工程应用和target
+## 新建工程
 
-在Xcode中新建一个新的应用和target.
-
-## 配置处理器架构
-
-Vitamio SDK for iOS 当前版本只支持 armv7 架构, 所以在导入 Vitamio 头文件和静态
-库之前, 需要配置target. 选择 Build Settings | Architectures | Valid Architectures,
-将该选项的 Debug/Release 键都配置为 armv7 (即去掉armv7s的支持).
+在 Xcode 中新建一个新的 iOS 工程.
 
 ## 配置Target链接参数
 
@@ -86,11 +76,11 @@ Vitamio SDK 依赖的系统框架和系统库如下:
 
 ## 导入 Vitamio SDK
 
-把 Vitamio SDK 的头文件文件夹(include)和静态库 libVitamio.a 拖入 Xcode 工程中.
+把 Vitamio SDK 的头文件文件夹(include)和静态库 lib*.a 拖入 Xcode 工程中.
 
->
-	- include/			该文件夹下存放所需头文件
-	- libVitamio.a		Vitamio 静态库
+	- Vitamio/
+		- include/			该文件夹下存放所需头文件
+		- lib*.a			Vitamio 所需的各个静态库
 
 ## 调用 API
 
@@ -107,7 +97,9 @@ Vitamio SDK 依赖的系统框架和系统库如下:
 - 对于网络视频流地址, 可直接获取, 如:
 
 >
+```Objc
     NSString *videoUrl = @"http://meta.video.qiyi.com/242/de25dc2b5d385a8e27304d1e6dcd1a35.m3u8"
+```
 
 ### 播放器的简单使用流程
 
@@ -168,9 +160,11 @@ Vitamio SDK 依赖的系统框架和系统库如下:
 ```
 
 至此, Vitamio SDK 的快速入门就结束了, 更详细的代码及注释见 Vitamio-Demo 工程,
-其它 API 及协议的使用方法详见 "Vitamio SDK for iOS 参考文档".
+其它 API 及协议的使用方法详见 ["Vitamio SDK for iOS 参考文档"][A1].
 
 
+[A1]: https://github.com/yixia/Vitamio-iOS/tree/master/Doc
+[d1]: http://www.vitamio.org/en/
 
 
 (end)
