@@ -22,13 +22,17 @@ static NSString *sMediaURLs[] = {
 //	[[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"video-demo.mkv"],
 //	@"assets-library://asset/asset.MOV?id=112C86F5-1A5E-42EF-ADFA-0BE19C540665&ext=MOV",
 
+//	@"http://ndrstream.ic.llnwd.net/stream/ndrstream_ndr1wellenord_hi_mp3",
+//	@"http://112.197.2.11:1935/live/vtv3.stream/playlist.m3u8",
+
+	@"http://184.72.239.149/vod/smil:bigbuckbunnyiphone.smil/playlist.m3u8", // contains multiple video stream
+	@"http://devimages.apple.com/iphone/samples/bipbop/bipbopall.m3u8", // contains multiple video stream
+	@"http://sjlive.cbg.cn/app_2/_definst_/ls_2.stream/playlist.m3u8",
 	@"http://meta.video.qiyi.com/242/de25dc2b5d385a8e27304d1e6dcd1a35.m3u8",
 	@"http://ipadlive.cntv.soooner.com/cctv_p2p_hdtaiqiu.m3u8",
 //	@"http://219.232.160.145:5080/livestream/esx7h676.ts", // can't loadind?
 	@"mms://cdnmms.cnr.cn/cnr001",
-	@"http://ndrstream.ic.llnwd.net/stream/ndrstream_ndr1wellenord_hi_mp3",
 	@"http://94.242.221.141/hls/a-lo/stream140.m3u8",
-	@"http://devimages.apple.com/iphone/samples/bipbop/bipbopall.m3u8", // contains multiple qualities
 
 	@"http://159.226.15.215:8080/hls/zeiou/zeiou.m3u8",
 };

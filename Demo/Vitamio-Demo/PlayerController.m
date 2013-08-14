@@ -98,6 +98,8 @@
 
 - (void)mediaPlayer:(VMediaPlayer *)player didPrepared:(id)arg
 {
+	[player setVideoFillMode:VMVideoFillMode100];
+
 	mDuration = [player getDuration];
     [player start];
 
@@ -134,6 +136,8 @@
 {
 	// Set buffer size, default is 1024KB(1*1024*1024).
 //	[player setBufferSize:2*1024*1024];
+	[player setBufferSize:512*1024];
+	[player setAdaptiveStream:YES];
 }
 
 - (void)mediaPlayer:(VMediaPlayer *)player bufferingStart:(id)arg
