@@ -27,6 +27,7 @@
 @property (nonatomic, assign) IBOutlet UILabel  *curPosLbl;
 @property (nonatomic, assign) IBOutlet UILabel  *durationLbl;
 @property (nonatomic, assign) IBOutlet UILabel  *bubbleMsgLbl;
+@property (nonatomic, assign) IBOutlet UILabel  *downloadRate;
 @property (nonatomic, assign) IBOutlet UIView  	*activityCarrier;
 
 @property (nonatomic, copy)   NSURL *videoURL;
@@ -163,6 +164,15 @@
 		[player start];
 		[self.startPause setTitle:@"Pause" forState:UIControlStateNormal];
 		[self stopActivity];
+	}
+}
+
+- (void)mediaPlayer:(VMediaPlayer *)player downloadRate:(id)arg
+{
+	if (![Utilities isLocalMedia:self.videoURL]) {
+		self.downloadRate.text = [NSString stringWithFormat:@"%dKB/s", [arg intValue]];
+	} else {
+		self.downloadRate.text = nil;
 	}
 }
 

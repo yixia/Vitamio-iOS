@@ -175,7 +175,7 @@
 								<string key="NSFrame">{{260, 0}, {60, 44}}</string>
 								<reference key="NSSuperview" ref="243784919"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="496648109"/>
+								<reference key="NSNextKeyView" ref="106990942"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -191,6 +191,38 @@
 								<reference key="IBUINormalTitleShadowColor" ref="142553863"/>
 								<reference key="IBUIFontDescription" ref="179221368"/>
 								<reference key="IBUIFont" ref="665958081"/>
+							</object>
+							<object class="IBUILabel" id="106990942">
+								<reference key="NSNextResponder" ref="243784919"/>
+								<int key="NSvFlags">289</int>
+								<string key="NSFrame">{{191, 60}, {129, 33}}</string>
+								<reference key="NSSuperview" ref="243784919"/>
+								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView" ref="496648109"/>
+								<string key="NSReuseIdentifierKey">_NS:9</string>
+								<bool key="IBUIOpaque">NO</bool>
+								<bool key="IBUIClipsSubviews">YES</bool>
+								<int key="IBUIContentMode">7</int>
+								<bool key="IBUIUserInteractionEnabled">NO</bool>
+								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+								<string key="IBUIText"/>
+								<object class="NSColor" key="IBUITextColor">
+									<int key="NSColorSpace">1</int>
+									<bytes key="NSRGB">MSAwLjQ0NTk1Njk2NDEgMC4xNDQ1NTkxMjgAA</bytes>
+								</object>
+								<nil key="IBUIHighlightedColor"/>
+								<int key="IBUIBaselineAdjustment">0</int>
+								<int key="IBUITextAlignment">2</int>
+								<object class="IBUIFontDescription" key="IBUIFontDescription">
+									<int key="type">1</int>
+									<double key="pointSize">17</double>
+								</object>
+								<object class="NSFont" key="IBUIFont">
+									<string key="NSName">Helvetica</string>
+									<double key="NSSize">17</double>
+									<int key="NSfFlags">16</int>
+								</object>
+								<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
 							</object>
 						</array>
 						<string key="NSFrameSize">{320, 104}</string>
@@ -438,6 +470,14 @@
 					<int key="connectionID">43</int>
 				</object>
 				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">downloadRate</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="106990942"/>
+					</object>
+					<int key="connectionID">45</int>
+				</object>
+				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">goBackButtonAction:</string>
 						<reference key="source" ref="486568222"/>
@@ -541,6 +581,7 @@
 							<reference ref="97858601"/>
 							<reference ref="314002707"/>
 							<reference ref="855385561"/>
+							<reference ref="106990942"/>
 						</array>
 						<reference key="parent" ref="191373211"/>
 					</object>
@@ -609,6 +650,11 @@
 						<reference key="object" ref="855385561"/>
 						<reference key="parent" ref="243784919"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">44</int>
+						<reference key="object" ref="106990942"/>
+						<reference key="parent" ref="243784919"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -630,23 +676,44 @@
 				<string key="32.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="34.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="36.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="44.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="9.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">43</int>
+			<int key="maxID">45</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
 				<object class="IBPartialClassDescription">
 					<string key="className">PlayerController</string>
 					<string key="superclassName">UIViewController</string>
+					<dictionary class="NSMutableDictionary" key="actions">
+						<string key="goBackButtonAction:">id</string>
+						<string key="restartButtonAction:">id</string>
+						<string key="switchVideoViewModeButtonAction:">id</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="actionInfosByName">
+						<object class="IBActionInfo" key="goBackButtonAction:">
+							<string key="name">goBackButtonAction:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="restartButtonAction:">
+							<string key="name">restartButtonAction:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="switchVideoViewModeButtonAction:">
+							<string key="name">switchVideoViewModeButtonAction:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+					</dictionary>
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="activityCarrier">UIView</string>
 						<string key="bubbleMsgLbl">UILabel</string>
 						<string key="curPosLbl">UILabel</string>
+						<string key="downloadRate">UILabel</string>
 						<string key="durationLbl">UILabel</string>
 						<string key="modeBtn">UIButton</string>
 						<string key="nextBtn">UIButton</string>
@@ -666,6 +733,10 @@
 						</object>
 						<object class="IBToOneOutletInfo" key="curPosLbl">
 							<string key="name">curPosLbl</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="downloadRate">
+							<string key="name">downloadRate</string>
 							<string key="candidateClassName">UILabel</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="durationLbl">
