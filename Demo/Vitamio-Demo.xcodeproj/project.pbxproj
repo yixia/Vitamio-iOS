@@ -375,7 +375,7 @@
 					"../../ios-vitamio/build/Debug-iphoneos",
 					../Vitamio,
 				);
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "../../ios-vitamio/build/Debug-iphoneos/include/Vitamio ../../ios-vitamio/build/Debug-iphonesimulator/include/Vitamio ../Vitamio/include/Vitamio";
@@ -398,7 +398,7 @@
 					"../../ios-vitamio/build/Release-iphoneos",
 					../Vitamio,
 				);
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "../../ios-vitamio/build/Release-iphoneos/include/Vitamio ../../ios-vitamio/build/Release-iphonesimulator/include/Vitamio ../Vitamio/include/Vitamio";
