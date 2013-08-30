@@ -106,14 +106,36 @@
 /** Set the media url to media player, and also pass protocol header to it.
  *
  * This method is provide for some online media stream, the parameter *header* is usefull for
- * media player on open and prepare the media stream, but it is not necessary.
+ * media player on open and prepare the media stream, but it is not necessary. optionally, You
+ * can use setOptionsWithKeys:withValues: method to do that.
  *
  * @param mediaURL The url of media want to play.
  * @param header The protocol header, e.g. HTTP header.
  * @see setDataSource:
+ * @see setOptionsWithKeys:withValues:
  * @see prepareAsync
  */
 - (void)setDataSource:(NSURL *)mediaURL header:(NSString *)header;
+
+/** Set the media segment urls to media player.
+ *
+ * This method is provide for some media stream, which contain by many segments.
+ *
+ * @param baseURL The base url to locate steam file list. Can be nil.
+ * @param list The segments list.
+ * @see setDataSource:
+ * @see prepareAsync
+ */
+- (void)setDataSegmentsSource:(NSString*)baseURL fileList:(NSArray*)list;
+
+/** Pass options to media.
+ *
+ * @param keys
+ * @param values
+ * @see setDataSource:
+ * @see prepareAsync
+ */
+- (void)setOptionsWithKeys:(NSArray *)keys withValues:(NSArray *)values;
 
 /** Prepares the player for playback, asynchronously.
  *

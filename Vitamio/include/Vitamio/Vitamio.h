@@ -14,6 +14,7 @@
 #import "VPlayerManageDef.h"
 #import "VMediaPlayer.h"
 #import "VMediaPlayerDelegate.h"
+#import "VMediaExtracterDef.h"
 #import "VMediaExtracter.h"
 
 

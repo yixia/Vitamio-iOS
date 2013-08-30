@@ -9,6 +9,8 @@
 #import "VSingleton.h"
 
 
+
+
 /** The Vitamio main class that provide all control about extract info from media.
  */
 @interface VMediaExtracter : VSingleton
@@ -46,12 +48,10 @@
 
 - (NSString *)getEncoding;
 
-- (NSString *)getDuration;
-
-- (int)getWidth;
-
-- (int)getHeight;
-
+- (NSArray *)getDescriptionMetas;
+- (NSArray *)getVideoTrackMetas;
+- (NSArray *)getAudioTrackMetas;
+- (NSArray *)getSubtitleTrackMetas;
 
 ///---------------------------------------------------------------------------------------
 /// @name Extract methods

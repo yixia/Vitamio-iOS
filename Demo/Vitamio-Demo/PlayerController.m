@@ -22,7 +22,7 @@
 @property (nonatomic, assign) IBOutlet UIButton *prevBtn;
 @property (nonatomic, assign) IBOutlet UIButton *nextBtn;
 @property (nonatomic, assign) IBOutlet UIButton *modeBtn;
-@property (nonatomic, assign) IBOutlet UIButton *restartBtn;
+@property (nonatomic, assign) IBOutlet UIButton *reset;
 @property (nonatomic, assign) IBOutlet UISlider *progressSld;
 @property (nonatomic, assign) IBOutlet UILabel  *curPosLbl;
 @property (nonatomic, assign) IBOutlet UILabel  *durationLbl;
@@ -53,14 +53,26 @@
 	if (!mMPayer) {
 		mMPayer = [VMediaPlayer sharedInstance];
 		[mMPayer setupPlayerWithCarrierView:self.view withDelegate:self];
+		[self setupObservers];
 	}
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
 	[super viewDidAppear:animated];
+	[[UIApplication sharedApplication] setStatusBarHidden:YES];
+	[[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+	[self becomeFirstResponder];
 
 	[self currButtonAction:nil];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+	[super viewDidDisappear:animated];
+	[[UIApplication sharedApplication] setStatusBarHidden:NO];
+	[[UIApplication sharedApplication] endReceivingRemoteControlEvents];
+    [self resignFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning
@@ -70,6 +82,7 @@
 
 - (void)dealloc
 {
+	[self unSetupObservers];
 	[_videoURL release];
 	[_activityView release];
 	[mMPayer unSetupPlayer];
@@ -90,6 +103,57 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
 	return YES;
+}
+
+
+#pragma mark - Respond to the Remote Control Events
+
+- (BOOL)canBecomeFirstResponder
+{
+	return YES;
+}
+
+- (void)remoteControlReceivedWithEvent:(UIEvent *)event
+{
+	switch (event.subtype) {
+		case UIEventSubtypeRemoteControlTogglePlayPause:
+			if ([mMPayer isPlaying]) {
+				[mMPayer pause];
+			} else {
+				[mMPayer start];
+			}
+			break;
+		case UIEventSubtypeRemoteControlPlay:
+			[mMPayer start];
+			break;
+		case UIEventSubtypeRemoteControlPause:
+			[mMPayer pause];
+			break;
+		case UIEventSubtypeRemoteControlPreviousTrack:
+			[self prevButtonAction:nil];
+			break;
+		case UIEventSubtypeRemoteControlNextTrack:
+			[self nextButtonAction:nil];
+			break;
+		default:
+			break;
+	}
+}
+
+- (void)applicationDidEnterForeground:(NSNotification *)notification
+{
+    if (![mMPayer isPlaying]) {
+		[mMPayer start];
+		[self.startPause setTitle:@"Pause" forState:UIControlStateNormal];
+	}
+	[mMPayer setVideoShown:YES];
+}
+
+- (void)applicationDidEnterBackground:(NSNotification *)notification
+{
+    if ([mMPayer isPlaying]) {
+		[mMPayer setVideoShown:NO];
+    }
 }
 
 
@@ -137,8 +201,8 @@
 {
 	// Set buffer size, default is 1024KB(1*1024*1024).
 //	[player setBufferSize:2*1024*1024];
-	[player setBufferSize:512*1024];
-	[player setAdaptiveStream:YES];
+	[player setBufferSize:12*1024];
+//	[player setAdaptiveStream:YES];
 }
 
 - (void)mediaPlayer:(VMediaPlayer *)player bufferingStart:(id)arg
@@ -179,14 +243,57 @@
 
 #pragma mark - Convention Methods
 
+#define TEST_Common					1
+#define TEST_setOptionsWithKeys		0
+#define TEST_setDataSegmentsSource	0
+
 -(void)quicklyPlayMovie:(NSURL*)fileURL title:(NSString*)title seekToPos:(long)pos
 {
 	[UIApplication sharedApplication].idleTimerDisabled = YES;
-	[[UIApplication sharedApplication] setStatusBarHidden:YES];
-
-	self.videoURL = fileURL;
 	[self setBtnEnableStatus:NO];
+
+#if TEST_Common // Test Common
+	NSString *abs = [fileURL absoluteString];
+	if ([abs rangeOfString:@"://"].length == 0) {
+		NSString *docDir = [NSString stringWithFormat:@"%@/Documents", NSHomeDirectory()];
+		NSString *videoUrl = [NSString stringWithFormat:@"%@/%@", docDir, abs];
+		self.videoURL = [NSURL fileURLWithPath:videoUrl];
+	} else {
+		self.videoURL = fileURL;
+	}
     [mMPayer setDataSource:self.videoURL header:nil];
+#elif TEST_setOptionsWithKeys // Test setOptionsWithKeys:withValues:
+	self.videoURL = [NSURL URLWithString:@"rtmp://videodownls.9xiu.com/9xiu/552"]; // This is a live stream.
+	NSMutableArray *keys = [NSMutableArray arrayWithCapacity:0];
+	NSMutableArray *vals = [NSMutableArray arrayWithCapacity:0];
+	keys[0] = @"-rtmp_live";
+	vals[0] = @"-1";
+    [mMPayer setDataSource:self.videoURL header:nil];
+	[mMPayer setOptionsWithKeys:keys withValues:vals];
+#elif TEST_setDataSegmentsSource // Test setDataSegmentsSource:fileList:
+	NSMutableArray *list = [NSMutableArray arrayWithCapacity:0];
+	[list addObject:@"http://112.65.235.140/vlive.qqvideo.tc.qq.com/95V8NuxWX2J.p202.1.mp4?vkey=E3D97333E93EDF36E56CB85CE0B02018E1001BA5C023DFFD298C0204CD81610CFCE546C79DE6C3E2"];
+	[list addObject:@"http://112.65.235.140/vlive.qqvideo.tc.qq.com/95V8NuxWX2J.p202.2.mp4?vkey=5E82F44940C19CCF26610E7E4088438E868AB2CAB5255E5FDE6763484B9B7E967EF9A97D7E54A324"];
+	[list addObject:@"http://112.65.235.140/vlive.qqvideo.tc.qq.com/95V8NuxWX2J.p202.3.mp4?vkey=0A1EA30BCB057BAE8746C2D7B07FE4ABF3BD839FF011224F31F7544BFFB647F06A6D5245C57277BC"];
+	[list addObject:@"http://112.65.235.140/vlive.qqvideo.tc.qq.com/95V8NuxWX2J.p202.4.mp4?vkey=DF36DC29AD2C2F0BA5A688223AFCD0008BDD681D8B060C9F4739E1A365495CD165E28DFD80E8E41C"];
+	[list addObject:@"http://112.65.235.140/vlive.qqvideo.tc.qq.com/95V8NuxWX2J.p202.5.mp4?vkey=76172D18B89A91CDB803889B4C5127741EF4BBD9B90CC54269B89CEEF558B9B286DDE6083ADB8195"];
+	[list addObject:@"http://112.65.235.140/vlive.qqvideo.tc.qq.com/95V8NuxWX2J.p202.6.mp4?vkey=27718B68A396DCFBC483321827604179D35F31C41EC57908C0F78D9416690F6986B0766872C2AF60"];
+	[list addObject:@"http://112.65.235.140/vlive.qqvideo.tc.qq.com/95V8NuxWX2J.p202.7.mp4?vkey=B56628DD31A60E975CC9EE321DCE2FC9554AF2CE5BC2BFCEFCEEA633F27CDF16CADA9915338AB2E5"];
+	[list addObject:@"http://112.65.235.140/vlive.qqvideo.tc.qq.com/95V8NuxWX2J.p202.8.mp4?vkey=40F45871CE7827699FACE57A95CA1FDA58B16A8A2523C738C422ADCBF015F50254C356614EFAFDE0"];
+	[list addObject:@"http://112.65.235.140/vlive.qqvideo.tc.qq.com/95V8NuxWX2J.p202.9.mp4?vkey=553157FD5A7607CC1E255D0E26B503FAD842DC509F15D766C31446E8607E60A621F7B9FABC5B8C7D"];
+	[list addObject:@"http://112.65.235.140/vlive.qqvideo.tc.qq.com/95V8NuxWX2J.p202.10.mp4?vkey=2968D15E93D1C1A295FC810DA561789487330F8BEA5B408533BF396648400A89924611724FD5BE67"];
+	[list addObject:@"http://112.65.235.140/vlive.qqvideo.tc.qq.com/95V8NuxWX2J.p202.11.mp4?vkey=495CDFCAD30945947CE1E43CBD88DE32E505B4D02BD4AAB2F4B17F98EFF702485C270558951A3109"];
+	[list addObject:@"http://112.65.235.140/vlive.qqvideo.tc.qq.com/95V8NuxWX2J.p202.12.mp4?vkey=01B5580A0A6F3597D66440C060885AFC7AA03CD7272D36472FBC9C261D72D2E964D254775C574CA3"];
+	[list addObject:@"http://112.65.235.140/vlive.qqvideo.tc.qq.com/95V8NuxWX2J.p202.13.mp4?vkey=2256FFE5FABC971F6A0D6889A1EA1CE8E837D17929708C6ACC6F903939076BB926442DBF6F3AD309"];
+	[list addObject:@"http://112.65.235.140/vlive.qqvideo.tc.qq.com/95V8NuxWX2J.p202.14.mp4?vkey=77BB2C40B9383BF048206EC357FE5F061A0A16B9242CAD207CBEA3C3C53E50B24056D93E578A400F"];
+	[list addObject:@"http://112.65.235.140/vlive.qqvideo.tc.qq.com/95V8NuxWX2J.p202.15.mp4?vkey=1366F026BB6B987C82C58CF707269C091EA086BB1A09430611A6E124A419E04774FE793E11EB64C1"];
+	[list addObject:@"http://112.65.235.140/vlive.qqvideo.tc.qq.com/95V8NuxWX2J.p202.16.mp4?vkey=E0F358E64365C5B12614EA74B25C4F87C7E8CD4003DCB2C792850180CF3CD7645BB22E5E57B40CC5"];
+	[list addObject:@"http://112.65.235.140/vlive.qqvideo.tc.qq.com/95V8NuxWX2J.p202.17.mp4?vkey=E95EC62FAE0D92BE8A2FE85842B875F2E9B9B07616B8892D1EF18A0C645994E885D65BDAC24EF0FD"];
+	[list addObject:@"http://112.65.235.140/vlive.qqvideo.tc.qq.com/95V8NuxWX2J.p202.18.mp4?vkey=48B021C886CFC23E22FA56C71C7C204E300E7D58CBB97867F23CC8F30EB4D1B53ABE41627F7D6610"];
+	[list addObject:@"http://112.65.235.140/vlive.qqvideo.tc.qq.com/95V8NuxWX2J.p202.19.mp4?vkey=0D51F428BB12C2C5C015E41997371FC80338924F804D9D688C7B9560C7336A48870873F34189C58D"];
+    [mMPayer setDataSegmentsSource:nil fileList:list];
+#endif
+
     [mMPayer prepareAsync];
 	[self startActivityWithMsg:@"Loading..."];
 }
@@ -200,12 +307,15 @@
 -(void)quicklyStopMovie
 {
 	[mMPayer reset];
-
 	[mSyncSeekTimer invalidate];
 	mSyncSeekTimer = nil;
-
+	[self stopActivity];
+	self.curPosLbl.text = @"00:00:00";
+	self.durationLbl.text = @"00:00:00";
+	self.downloadRate.text = nil;
+	self.progressSld.value = 0.0;
+	[self setBtnEnableStatus:YES];
 	[UIApplication sharedApplication].idleTimerDisabled = NO;
-	[[UIApplication sharedApplication] setStatusBarHidden:NO];
 }
 
 
@@ -290,9 +400,9 @@
 	[mMPayer setVideoFillMode:modes[curModeIdx]];
 }
 
--(IBAction)restartButtonAction:(id)sender
+-(IBAction)resetButtonAction:(id)sender
 {
-	[self quicklyReplayMovie:self.videoURL title:nil seekToPos:0];
+	[self quicklyStopMovie];
 }
 
 -(IBAction)dragProgressSliderAction:(id)sender
@@ -335,8 +445,26 @@
 	self.prevBtn.enabled = enable;
 	self.nextBtn.enabled = enable;
 	self.modeBtn.enabled = enable;
-	self.restartBtn.enabled = enable;
 }
+
+- (void)setupObservers
+{
+	NSNotificationCenter *def = [NSNotificationCenter defaultCenter];
+    [def addObserver:self
+			selector:@selector(applicationDidEnterForeground:)
+				name:UIApplicationDidBecomeActiveNotification
+			  object:[UIApplication sharedApplication]];
+    [def addObserver:self
+			selector:@selector(applicationDidEnterBackground:)
+				name:UIApplicationWillResignActiveNotification
+			  object:[UIApplication sharedApplication]];
+}
+
+- (void)unSetupObservers
+{
+	[[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 
 -(void)showVideoLoadingError
 {
@@ -355,6 +483,5 @@
 	[alertView show];
 	[alertView release];
 }
-
 
 @end

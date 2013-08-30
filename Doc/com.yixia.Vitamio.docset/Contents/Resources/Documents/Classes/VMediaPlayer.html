@@ -67,6 +67,10 @@
 	
 	<option value="//api/name/setDataSource:header:">&nbsp;&nbsp;&nbsp;&nbsp;- setDataSource:header:</option>
 	
+	<option value="//api/name/setDataSegmentsSource:fileList:">&nbsp;&nbsp;&nbsp;&nbsp;- setDataSegmentsSource:fileList:</option>
+	
+	<option value="//api/name/setOptionsWithKeys:withValues:">&nbsp;&nbsp;&nbsp;&nbsp;- setOptionsWithKeys:withValues:</option>
+	
 	<option value="//api/name/prepareAsync">&nbsp;&nbsp;&nbsp;&nbsp;- prepareAsync</option>
 	
 	<option value="//api/name/start">&nbsp;&nbsp;&nbsp;&nbsp;- start</option>
@@ -240,6 +244,10 @@
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setDataSource:">setDataSource:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setDataSource:header:">setDataSource:header:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setDataSegmentsSource:fileList:">setDataSegmentsSource:fileList:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setOptionsWithKeys:withValues:">setOptionsWithKeys:withValues:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/prepareAsync">prepareAsync</a></span></li>
 	
@@ -469,6 +477,18 @@
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/setDataSource:header:">&ndash;&nbsp;setDataSource:header:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/setDataSegmentsSource:fileList:">&ndash;&nbsp;setDataSegmentsSource:fileList:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/setOptionsWithKeys:withValues:">&ndash;&nbsp;setOptionsWithKeys:withValues:</a></code>
 	</span>
 	
 	
@@ -1278,7 +1298,130 @@ with the hint of <a href="#//api/name/decodingSchemeHint"><code>decodingSchemeHi
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
 		<p>This method is provide for some online media stream, the parameter <em>header</em> is usefull for
-media player on open and prepare the media stream, but it is not necessary.</p>
+media player on open and prepare the media stream, but it is not necessary. optionally, You
+can use <a href="#//api/name/setOptionsWithKeys:withValues:">setOptionsWithKeys:withValues:</a> method to do that.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection see-also-section">
+		<h4 class="method-subtitle">See Also</h4>
+		<ul>
+			
+			<li><code><p><a href="#//api/name/setDataSource:">- setDataSource:</a></p></code></li>
+			
+			<li><code><p><a href="#//api/name/setOptionsWithKeys:withValues:">- setOptionsWithKeys:withValues:</a></p></code></li>
+			
+			<li><code><p><a href="#//api/name/prepareAsync">- prepareAsync</a></p></code></li>
+			
+		</ul>
+	</div>
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">VMediaPlayer.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/setDataSegmentsSource:fileList:" title="setDataSegmentsSource:fileList:"></a>
+	<h3 class="subsubtitle method-title">setDataSegmentsSource:fileList:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Set the media segment urls to media player.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)setDataSegmentsSource:(NSString *)<em>baseURL</em> fileList:(NSArray *)<em>list</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>baseURL</em></dt>
+			<dd><p>The base url to locate steam file list. Can be nil.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>list</em></dt>
+			<dd><p>The segments list.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>This method is provide for some media stream, which contain by many segments.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection see-also-section">
+		<h4 class="method-subtitle">See Also</h4>
+		<ul>
+			
+			<li><code><p><a href="#//api/name/setDataSource:">- setDataSource:</a></p></code></li>
+			
+			<li><code><p><a href="#//api/name/prepareAsync">- prepareAsync</a></p></code></li>
+			
+		</ul>
+	</div>
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">VMediaPlayer.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/setOptionsWithKeys:withValues:" title="setOptionsWithKeys:withValues:"></a>
+	<h3 class="subsubtitle method-title">setOptionsWithKeys:withValues:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Pass options to media.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)setOptionsWithKeys:(NSArray *)<em>keys</em> withValues:(NSArray *)<em>values</em></code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>@param keys
+@param values</p>
 	</div>
 	
 	
@@ -3659,7 +3802,7 @@ so you need use this method to set the right aspect ratio for media player.</p>
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 YiXia.com. All rights reserved. (Last updated: 2013-08-02)</span><br />
+						<p><span class="copyright">&copy; 2013 YiXia.com. All rights reserved. (Last updated: 2013-08-30)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 858)</a>.</span></p>
 						
