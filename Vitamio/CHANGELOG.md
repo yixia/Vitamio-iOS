@@ -1,3 +1,16 @@
+## v1.1.3
+
+- Add new API `setDataSegmentsSource:fileList:` for play media segments list;
+- Add new API `setOptionsWithKeys:withValues:` for pass user options to media player;
+- Add support backgroud playing;
+- Add optimization for play MMS/RTMP stream;
+
+
+## v1.1.1
+
+- Compatible with link flag '-all_load'
+
+
 ## v1.1.0
 
 - Support armv7/armv7s/i386(simulator);
