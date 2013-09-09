@@ -61,6 +61,7 @@ The bellow is a system framwork list of Vitamio dependency.
 	- libbz2.dylib
 	- libz.dylib
 	- libstdc++.dylib
+	- libiconv.dylib
 
 Follow `'Your target' | Build phases | Link Binary With Libraries`, Add the
 framworks or libraries show in above list to project.
