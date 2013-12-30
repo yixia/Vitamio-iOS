@@ -11,6 +11,9 @@
 #import "PlayerControllerDelegate.h"
 
 
+#define kBackviewDefaultRect		CGRectMake(20, 47, 280, 180)
+
+
 @interface PlayerController : UIViewController <VMediaPlayerDelegate>
 
 @property (nonatomic, assign) id<PlayerControllerDelegate> delegate;

@@ -114,7 +114,7 @@
 
 +(NSString *)timeToHumanString:(unsigned long)ms
 {
-    int seconds, h, m, s;
+    unsigned long seconds, h, m, s;
     char buff[128] = { 0 };
     NSString *nsRet = nil;
 
@@ -122,7 +122,7 @@
     h = seconds / 3600;
     m = (seconds - h * 3600) / 60;
     s = seconds - h * 3600 - m * 60;
-    snprintf(buff, sizeof(buff), "%02d:%02d:%02d", h, m, s);
+    snprintf(buff, sizeof(buff), "%02ld:%02ld:%02ld", h, m, s);
     nsRet = [[[NSString alloc] initWithCString:buff
                                       encoding:NSUTF8StringEncoding] autorelease];
 
@@ -284,7 +284,7 @@
 {
 	CGFloat red = 0.0, green = 0.0, blue = 0.0, alpha = 1.0;
 	const CGFloat *components = CGColorGetComponents(color.CGColor);
-	int num = CGColorGetNumberOfComponents(color.CGColor);
+	size_t num = CGColorGetNumberOfComponents(color.CGColor);
 	if (num == 4) {
 		red = components[0];
 		green = components[1];
@@ -386,7 +386,7 @@
 {
 #define kDebugYUV420PDirPath [[VAppInfo sharedInstance] homePath]
 
-    int ret;
+    size_t ret;
     FILE *pYUV = NULL;
     NSString *savefile = [self getFilePathCreateIfNeed:kDebugYUV420PDirPath file:filename];
 

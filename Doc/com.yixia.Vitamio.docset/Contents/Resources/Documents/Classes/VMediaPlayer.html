@@ -59,7 +59,7 @@
 	
 	<option value="instance_methods">Instance Methods</option>
 	
-	<option value="//api/name/setupPlayerWithCarrierView:withDelegate:">&nbsp;&nbsp;&nbsp;&nbsp;- setupPlayerWithCarrierView:withDelegate:</option>
+	<option value="//api/name/setupPlayerWithCarrierView:withDelegate:withAppKey:withSecretKey:">&nbsp;&nbsp;&nbsp;&nbsp;- setupPlayerWithCarrierView:withDelegate:withAppKey:withSecretKey:</option>
 	
 	<option value="//api/name/unSetupPlayer">&nbsp;&nbsp;&nbsp;&nbsp;- unSetupPlayer</option>
 	
@@ -68,6 +68,8 @@
 	<option value="//api/name/setDataSource:header:">&nbsp;&nbsp;&nbsp;&nbsp;- setDataSource:header:</option>
 	
 	<option value="//api/name/setDataSegmentsSource:fileList:">&nbsp;&nbsp;&nbsp;&nbsp;- setDataSegmentsSource:fileList:</option>
+	
+	<option value="//api/name/setCacheDirectory:">&nbsp;&nbsp;&nbsp;&nbsp;- setCacheDirectory:</option>
 	
 	<option value="//api/name/setOptionsWithKeys:withValues:">&nbsp;&nbsp;&nbsp;&nbsp;- setOptionsWithKeys:withValues:</option>
 	
@@ -237,7 +239,7 @@
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setupPlayerWithCarrierView:withDelegate:">setupPlayerWithCarrierView:withDelegate:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setupPlayerWithCarrierView:withDelegate:withAppKey:withSecretKey:">setupPlayerWithCarrierView:withDelegate:withAppKey:withSecretKey:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/unSetupPlayer">unSetupPlayer</a></span></li>
 	
@@ -246,6 +248,8 @@
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setDataSource:header:">setDataSource:header:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setDataSegmentsSource:fileList:">setDataSegmentsSource:fileList:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setCacheDirectory:">setCacheDirectory:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setOptionsWithKeys:withValues:">setOptionsWithKeys:withValues:</a></span></li>
 	
@@ -418,7 +422,7 @@
 						<ul class="task-list">
 							<li>
 	<span class="tooltip">
-		<code><a href="#//api/name/setupPlayerWithCarrierView:withDelegate:">&ndash;&nbsp;setupPlayerWithCarrierView:withDelegate:</a></code>
+		<code><a href="#//api/name/setupPlayerWithCarrierView:withDelegate:withAppKey:withSecretKey:">&ndash;&nbsp;setupPlayerWithCarrierView:withDelegate:withAppKey:withSecretKey:</a></code>
 	</span>
 	
 	
@@ -483,6 +487,12 @@
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/setDataSegmentsSource:fileList:">&ndash;&nbsp;setDataSegmentsSource:fileList:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/setCacheDirectory:">&ndash;&nbsp;setCacheDirectory:</a></code>
 	</span>
 	
 	
@@ -1087,8 +1097,8 @@ with the hint of <a href="#//api/name/decodingSchemeHint"><code>decodingSchemeHi
 						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
 						
 						<div class="section-method">
-	<a name="//api/name/setupPlayerWithCarrierView:withDelegate:" title="setupPlayerWithCarrierView:withDelegate:"></a>
-	<h3 class="subsubtitle method-title">setupPlayerWithCarrierView:withDelegate:</h3>
+	<a name="//api/name/setupPlayerWithCarrierView:withDelegate:withAppKey:withSecretKey:" title="setupPlayerWithCarrierView:withDelegate:withAppKey:withSecretKey:"></a>
+	<h3 class="subsubtitle method-title">setupPlayerWithCarrierView:withDelegate:withAppKey:withSecretKey:</h3>
 	
 	
 	
@@ -1098,7 +1108,7 @@ with the hint of <a href="#//api/name/decodingSchemeHint"><code>decodingSchemeHi
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (BOOL)setupPlayerWithCarrierView:(UIView *)<em>carrier</em> withDelegate:(id&lt;VMediaPlayerDelegate&gt;)<em>delegate</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (BOOL)setupPlayerWithCarrierView:(UIView *)<em>carrier</em> withDelegate:(id&lt;VMediaPlayerDelegate&gt;)<em>dlg</em> withAppKey:(NSString *)<em>akey</em> withSecretKey:(NSString *)<em>skey</em></code></div>
 
     
 	
@@ -1108,6 +1118,16 @@ with the hint of <a href="#//api/name/decodingSchemeHint"><code>decodingSchemeHi
 		<dl class="argument-def parameter-def">
 			<dt><em>carrier</em></dt>
 			<dd><p>The view of video picture will rendering to.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>akey</em></dt>
+			<dd><p>The App-Key.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>skey</em></dt>
+			<dd><p>The Secret-Key.</p></dd>
 		</dl>
 		
 		<dl class="argument-def parameter-def">
@@ -1181,15 +1201,6 @@ with the hint of <a href="#//api/name/decodingSchemeHint"><code>decodingSchemeHi
 	
 	
 	
-	
-	<div class="method-subsection see-also-section">
-		<h4 class="method-subtitle">See Also</h4>
-		<ul>
-			
-			<li><code><p><a href="#//api/name/setupPlayerWithCarrierView:withDelegate:">- setupPlayerWithCarrierView:withDelegate:</a></p></code></li>
-			
-		</ul>
-	</div>
 	
 	
 	
@@ -1385,6 +1396,47 @@ can use <a href="#//api/name/setOptionsWithKeys:withValues:">setOptionsWithKeys:
 			
 		</ul>
 	</div>
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">VMediaPlayer.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/setCacheDirectory:" title="setCacheDirectory:"></a>
+	<h3 class="subsubtitle method-title">setCacheDirectory:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Set the diretory for cache data to store.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)setCacheDirectory:(NSString *)<em>directory</em></code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>@param directory</p>
+	</div>
+	
+	
+	
+	
 	
 	
 	
@@ -3802,7 +3854,7 @@ so you need use this method to set the right aspect ratio for media player.</p>
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 YiXia.com. All rights reserved. (Last updated: 2013-08-30)</span><br />
+						<p><span class="copyright">&copy; 2013 YiXia.com. All rights reserved. (Last updated: 2013-12-25)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 858)</a>.</span></p>
 						

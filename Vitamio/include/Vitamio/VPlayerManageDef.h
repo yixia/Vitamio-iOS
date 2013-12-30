@@ -16,8 +16,8 @@
  */
 typedef enum emVMDecodingScheme {
 	VMDecodingSchemeQuickTime = 0, 	/// Support apple quick time medias, e.g. mp4 or mov.
-	VMDecodingSchemeHardware,		/// Support H.264 & MPEG4.
 	VMDecodingSchemeSoftware,		/// Support almost all format.
+	VMDecodingSchemeHardware,		/// Support H.264 & MPEG4.
 } emVMDecodingScheme;
 
 /**

@@ -39,15 +39,20 @@
  *
  * @param carrier The view of video picture will rendering to.
  * @param delegate The protocol to setup.
+ * @param akey The App-Key.
+ * @param skey The Secret-Key.
  * @return Returns YES or NO if setup fails.
  * @see unSetupPlayer
  */
-- (BOOL)setupPlayerWithCarrierView:(UIView *)carrier withDelegate:(id<VMediaPlayerDelegate>)delegate;
+- (BOOL)setupPlayerWithCarrierView:(UIView *)carrier
+					  withDelegate:(id<VMediaPlayerDelegate>)dlg
+						withAppKey:(NSString *)akey
+					 withSecretKey:(NSString *)skey;
 
 /** Unsetup the media player.
  *
  * @return Returns YES or NO if the media player have not ever setup yet.
- * @see setupPlayerWithCarrierView:withDelegate:
+ * @see setupPlayerWithCarrierView:withDelegate:withAppKey:withSecretKey
  */
 - (BOOL)unSetupPlayer;
 
@@ -127,6 +132,13 @@
  * @see prepareAsync
  */
 - (void)setDataSegmentsSource:(NSString*)baseURL fileList:(NSArray*)list;
+
+
+/** Set the diretory for cache data to store.
+ *
+ * @param directory
+ */
+-(void)setCacheDirectory:(NSString *)directory;
 
 /** Pass options to media.
  *

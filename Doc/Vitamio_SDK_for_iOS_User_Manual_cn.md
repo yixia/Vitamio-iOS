@@ -70,7 +70,6 @@ Vitamio SDK 依赖的系统框架和系统库如下:
 	- libbz2.dylib				压缩工具
 	- libz.dylib				压缩工具
 	- libstdc++.dylib			C++标准库
-	- libiconv.dylib				
 
 配置 target, 在 Xcode Build Phases | Link Binary With Libraries 中添加以上所列
 框架和库.

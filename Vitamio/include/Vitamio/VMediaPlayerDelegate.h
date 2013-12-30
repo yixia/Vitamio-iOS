@@ -158,6 +158,14 @@
 - (void)mediaPlayer:(VMediaPlayer *)player cacheNotAvailable:(id)arg;
 
 /**
+ * Called when player enable cache and cache of this stream is available.
+ *
+ * @param player The shared media player instance.
+ * @param arg *NSString* type. The cache file path, it can playback again with Vitamio.
+ */
+- (void)mediaPlayer:(VMediaPlayer *)player cacheStart:(id)arg;
+
+/**
  * Called when player enable cache and the cache progress changed.
  *
  * @param player The shared media player instance.

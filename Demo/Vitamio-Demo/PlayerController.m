@@ -8,6 +8,7 @@
 
 #import "Utilities.h"
 #import "PlayerController.h"
+#import "VSegmentSlider.h"
 
 
 @interface PlayerController ()
@@ -23,15 +24,18 @@
 @property (nonatomic, assign) IBOutlet UIButton *nextBtn;
 @property (nonatomic, assign) IBOutlet UIButton *modeBtn;
 @property (nonatomic, assign) IBOutlet UIButton *reset;
-@property (nonatomic, assign) IBOutlet UISlider *progressSld;
+@property (nonatomic, assign) IBOutlet VSegmentSlider *progressSld;
 @property (nonatomic, assign) IBOutlet UILabel  *curPosLbl;
 @property (nonatomic, assign) IBOutlet UILabel  *durationLbl;
 @property (nonatomic, assign) IBOutlet UILabel  *bubbleMsgLbl;
 @property (nonatomic, assign) IBOutlet UILabel  *downloadRate;
 @property (nonatomic, assign) IBOutlet UIView  	*activityCarrier;
+@property (nonatomic, assign) IBOutlet UIView  	*backView;
+@property (nonatomic, assign) IBOutlet UIView  	*carrier;
 
 @property (nonatomic, copy)   NSURL *videoURL;
 @property (nonatomic, retain) UIActivityIndicatorView *activityView;
+@property (nonatomic, assign) BOOL progressDragging;
 
 @end
 
@@ -50,9 +54,20 @@
 	self.activityView = [[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:
 						  UIActivityIndicatorViewStyleWhiteLarge] autorelease];
 	[self.activityCarrier addSubview:self.activityView];
+
+	UITapGestureRecognizer *gr = [[[UITapGestureRecognizer alloc]
+								   initWithTarget:self 
+								   action:@selector(progressSliderTapped:)] autorelease];
+    [self.progressSld addGestureRecognizer:gr];
+    [self.progressSld setThumbImage:[UIImage imageNamed:@"pb-seek-bar-btn"] forState:UIControlStateNormal];
+    [self.progressSld setMinimumTrackImage:[UIImage imageNamed:@"pb-seek-bar-fr"] forState:UIControlStateNormal];
+    [self.progressSld setMaximumTrackImage:[UIImage imageNamed:@"pb-seek-bar-bg"] forState:UIControlStateNormal];
+
 	if (!mMPayer) {
 		mMPayer = [VMediaPlayer sharedInstance];
-		[mMPayer setupPlayerWithCarrierView:self.view withDelegate:self];
+		NSString *akey = @"d9R7N6O2hJM318LaBnem2i0f";
+		NSString *skey = @"64f60e48f456baa08623ff044666b250";
+		[mMPayer setupPlayerWithCarrierView:self.carrier withDelegate:self withAppKey:akey withSecretKey:skey];
 		[self setupObservers];
 	}
 }
@@ -105,6 +120,21 @@
 	return YES;
 }
 
+- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)to duration:(NSTimeInterval)duration
+{
+	if (UIInterfaceOrientationIsLandscape(to)) {
+		self.backView.frame = self.view.bounds;
+	} else {
+		self.backView.frame = kBackviewDefaultRect;
+	}
+	NSLog(@"NAL 1HUI &&&&&&&&& frame=%@", NSStringFromCGRect(self.carrier.frame));
+}
+
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
+{
+	NSLog(@"NAL 2HUI &&&&&&&&& frame=%@", NSStringFromCGRect(self.carrier.frame));
+}
+
 
 #pragma mark - Respond to the Remote Control Events
 
@@ -142,16 +172,17 @@
 
 - (void)applicationDidEnterForeground:(NSNotification *)notification
 {
+	[mMPayer setVideoShown:YES];
     if (![mMPayer isPlaying]) {
 		[mMPayer start];
 		[self.startPause setTitle:@"Pause" forState:UIControlStateNormal];
 	}
-	[mMPayer setVideoShown:YES];
 }
 
 - (void)applicationDidEnterBackground:(NSNotification *)notification
 {
     if ([mMPayer isPlaying]) {
+		[mMPayer pause];
 		[mMPayer setVideoShown:NO];
     }
 }
@@ -163,7 +194,7 @@
 
 - (void)mediaPlayer:(VMediaPlayer *)player didPrepared:(id)arg
 {
-	[player setVideoFillMode:VMVideoFillMode100];
+//	[player setVideoFillMode:VMVideoFillMode100];
 
 	mDuration = [player getDuration];
     [player start];
@@ -186,7 +217,7 @@
 {
 	NSLog(@"NAL 1RRE &&&& VMediaPlayer Error: %@", arg);
 	[self stopActivity];
-	[self showVideoLoadingError];
+//	[self showVideoLoadingError];
 	[self setBtnEnableStatus:YES];
 }
 
@@ -194,19 +225,37 @@
 
 - (void)mediaPlayer:(VMediaPlayer *)player setupManagerPreference:(id)arg
 {
-//	player.decodingSchemeHint = VMDecodingSchemeQuickTime;
+	player.decodingSchemeHint = VMDecodingSchemeSoftware;
+	player.autoSwitchDecodingScheme = NO;
 }
 
 - (void)mediaPlayer:(VMediaPlayer *)player setupPlayerPreference:(id)arg
 {
 	// Set buffer size, default is 1024KB(1*1024*1024).
-//	[player setBufferSize:2*1024*1024];
-	[player setBufferSize:12*1024];
+//	[player setBufferSize:256*1024];
+	[player setBufferSize:512*1024];
 //	[player setAdaptiveStream:YES];
+
+	[player setVideoQuality:VMVideoQualityHigh];
+
+//	player.useCache = YES;
+	[player setCacheDirectory:[self getCacheRootDirectory]];
+}
+
+- (void)mediaPlayer:(VMediaPlayer *)player seekComplete:(id)arg
+{
+}
+
+- (void)mediaPlayer:(VMediaPlayer *)player notSeekable:(id)arg
+{
+	self.progressDragging = NO;
+	NSLog(@"NAL 1HBT &&&&&&&&&&&&&&&&.......&&&&&&&&&&&&&&&&&");
 }
 
 - (void)mediaPlayer:(VMediaPlayer *)player bufferingStart:(id)arg
 {
+	self.progressDragging = YES;
+	NSLog(@"NAL 2HBT &&&&&&&&&&&&&&&&.......&&&&&&&&&&&&&&&&&");
 	if (![Utilities isLocalMedia:self.videoURL]) {
 		[player pause];
 		[self.startPause setTitle:@"Start" forState:UIControlStateNormal];
@@ -229,6 +278,8 @@
 		[self.startPause setTitle:@"Pause" forState:UIControlStateNormal];
 		[self stopActivity];
 	}
+	self.progressDragging = NO;
+	NSLog(@"NAL 3HBT &&&&&&&&&&&&&&&&.......&&&&&&&&&&&&&&&&&");
 }
 
 - (void)mediaPlayer:(VMediaPlayer *)player downloadRate:(id)arg
@@ -238,6 +289,49 @@
 	} else {
 		self.downloadRate.text = nil;
 	}
+}
+
+- (void)mediaPlayer:(VMediaPlayer *)player videoTrackLagging:(id)arg
+{
+//	NSLog(@"NAL 1BGR video lagging....");
+}
+
+#pragma mark VMediaPlayerDelegate Implement / Cache
+
+- (void)mediaPlayer:(VMediaPlayer *)player cacheNotAvailable:(id)arg
+{
+	NSLog(@"NAL .... media can't cache.");
+	self.progressSld.segments = nil;
+}
+
+- (void)mediaPlayer:(VMediaPlayer *)player cacheStart:(id)arg
+{
+	NSLog(@"NAL 1GFC .... media caches index : %@", arg);
+}
+
+- (void)mediaPlayer:(VMediaPlayer *)player cacheUpdate:(id)arg
+{
+	NSArray *segs = (NSArray *)arg;
+//	NSLog(@"NAL .... media cacheUpdate, %d, %@", segs.count, segs);
+	if (mDuration > 0) {
+		NSMutableArray *arr = [NSMutableArray arrayWithCapacity:0];
+		for (int i = 0; i < segs.count; i++) {
+			float val = (float)[segs[i] longLongValue] / mDuration;
+			[arr addObject:[NSNumber numberWithFloat:val]];
+		}
+		self.progressSld.segments = arr;
+	}
+}
+
+- (void)mediaPlayer:(VMediaPlayer *)player cacheSpeed:(id)arg
+{
+//	NSLog(@"NAL .... media cacheSpeed: %dKB/s", [(NSNumber *)arg intValue]);
+}
+
+- (void)mediaPlayer:(VMediaPlayer *)player cacheComplete:(id)arg
+{
+	NSLog(@"NAL .... media cacheComplete");
+	self.progressSld.segments = @[@(0.0), @(1.0)];
 }
 
 
@@ -250,7 +344,15 @@
 -(void)quicklyPlayMovie:(NSURL*)fileURL title:(NSString*)title seekToPos:(long)pos
 {
 	[UIApplication sharedApplication].idleTimerDisabled = YES;
-	[self setBtnEnableStatus:NO];
+//	[self setBtnEnableStatus:NO];
+
+	NSString *docDir = [NSString stringWithFormat:@"%@/Documents", NSHomeDirectory()];
+	NSLog(@"NAL &&& Doc: %@", docDir);
+
+
+//	fileURL = [NSURL URLWithString:@"http://v.17173.com/api/5981245-4.m3u8"];
+
+
 
 #if TEST_Common // Test Common
 	NSString *abs = [fileURL absoluteString];
@@ -261,7 +363,8 @@
 	} else {
 		self.videoURL = fileURL;
 	}
-    [mMPayer setDataSource:self.videoURL header:nil];
+//    [mMPayer setDataSource:self.videoURL header:nil];
+    [mMPayer setDataSource:self.videoURL];
 #elif TEST_setOptionsWithKeys // Test setOptionsWithKeys:withValues:
 	self.videoURL = [NSURL URLWithString:@"rtmp://videodownls.9xiu.com/9xiu/552"]; // This is a live stream.
 	NSMutableArray *keys = [NSMutableArray arrayWithCapacity:0];
@@ -309,11 +412,14 @@
 	[mMPayer reset];
 	[mSyncSeekTimer invalidate];
 	mSyncSeekTimer = nil;
-	[self stopActivity];
+	self.progressSld.value = 0.0;
+	self.progressSld.segments = nil;
 	self.curPosLbl.text = @"00:00:00";
 	self.durationLbl.text = @"00:00:00";
 	self.downloadRate.text = nil;
-	self.progressSld.value = 0.0;
+	mDuration = 0;
+	mCurPostion = 0;
+	[self stopActivity];
 	[self setBtnEnableStatus:YES];
 	[UIApplication sharedApplication].idleTimerDisabled = NO;
 }
@@ -402,13 +508,59 @@
 
 -(IBAction)resetButtonAction:(id)sender
 {
-	[self quicklyStopMovie];
+	static int bigView = 0;
+
+	[UIView animateWithDuration:0.3 animations:^{
+		if (bigView) {
+			self.backView.frame = kBackviewDefaultRect;
+			bigView = 0;
+		} else {
+			self.backView.frame = self.view.bounds;
+			bigView = 1;
+		}
+		NSLog(@"NAL 1NBV &&&& backview.frame=%@", NSStringFromCGRect(self.backView.frame));
+	}];
+
+
+//	[self quicklyStopMovie];
+}
+
+-(IBAction)progressSliderDownAction:(id)sender
+{
+	self.progressDragging = YES;
+	NSLog(@"NAL 4HBT &&&&&&&&&&&&&&&&.......&&&&&&&&&&&&&&&&&");
+	NSLog(@"NAL 1DOW &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& Touch Down");
+}
+
+-(IBAction)progressSliderUpAction:(id)sender
+{
+	UISlider *sld = (UISlider *)sender;
+	NSLog(@"NAL 1BVC &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& seek = %ld", (long)(sld.value * mDuration));
+	[self startActivityWithMsg:@"Buffering"];
+	[mMPayer seekTo:(long)(sld.value * mDuration)];
 }
 
 -(IBAction)dragProgressSliderAction:(id)sender
 {
 	UISlider *sld = (UISlider *)sender;
-	[mMPayer seekTo:(long)(sld.value * mDuration)];
+	self.curPosLbl.text = [Utilities timeToHumanString:(long)(sld.value * mDuration)];
+}
+
+-(void)progressSliderTapped:(UIGestureRecognizer *)g
+{
+    UISlider* s = (UISlider*)g.view;
+    if (s.highlighted)
+        return;
+    CGPoint pt = [g locationInView:s];
+    CGFloat percentage = pt.x / s.bounds.size.width;
+    CGFloat delta = percentage * (s.maximumValue - s.minimumValue);
+    CGFloat value = s.minimumValue + delta;
+    [s setValue:value animated:YES];
+    long seek = percentage * mDuration;
+	self.curPosLbl.text = [Utilities timeToHumanString:seek];
+	NSLog(@"NAL 2BVC &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& seek = %ld", seek);
+	[self startActivityWithMsg:@"Buffering"];
+    [mMPayer seekTo:seek];
 }
 
 
@@ -416,10 +568,12 @@
 
 -(void)syncUIStatus
 {
-	mCurPostion  = [mMPayer getCurrentPosition];
-	[self.progressSld setValue:(float)mCurPostion/mDuration];
-	self.curPosLbl.text = [Utilities timeToHumanString:mCurPostion];
-	self.durationLbl.text = [Utilities timeToHumanString:mDuration];
+	if (!self.progressDragging) {
+		mCurPostion  = [mMPayer getCurrentPosition];
+		[self.progressSld setValue:(float)mCurPostion/mDuration];
+		self.curPosLbl.text = [Utilities timeToHumanString:mCurPostion];
+		self.durationLbl.text = [Utilities timeToHumanString:mDuration];
+	}
 }
 
 
@@ -466,7 +620,7 @@
 }
 
 
--(void)showVideoLoadingError
+- (void)showVideoLoadingError
 {
 	NSString *sError = NSLocalizedString(@"Video cannot be played", @"description");
 	NSString *sReason = NSLocalizedString(@"Video cannot be loaded.", @"reason");
@@ -482,6 +636,18 @@
 											  otherButtonTitles:nil];
 	[alertView show];
 	[alertView release];
+}
+
+- (NSString *)getCacheRootDirectory
+{
+	NSString *cache = [NSString stringWithFormat:@"%@/Library/Caches/MediasCaches", NSHomeDirectory()];
+    if (![[NSFileManager defaultManager] fileExistsAtPath:cache]) {
+        [[NSFileManager defaultManager] createDirectoryAtPath:cache
+								  withIntermediateDirectories:YES
+												   attributes:nil
+														error:NULL];
+    }
+	return cache;
 }
 
 @end
