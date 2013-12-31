@@ -65,8 +65,8 @@
 
 	if (!mMPayer) {
 		mMPayer = [VMediaPlayer sharedInstance];
-		NSString *akey = @"d9R7N6O2hJM318LaBnem2i0f";
-		NSString *skey = @"64f60e48f456baa08623ff044666b250";
+		NSString *akey = @"wn9iKq0p9JSMfWz3G78ZvtlN";
+		NSString *skey = @"348b3e1ed183154034ce49decc8e1d69";
 		[mMPayer setupPlayerWithCarrierView:self.carrier withDelegate:self withAppKey:akey withSecretKey:skey];
 		[self setupObservers];
 	}
@@ -238,7 +238,7 @@
 
 	[player setVideoQuality:VMVideoQualityHigh];
 
-//	player.useCache = YES;
+	player.useCache = YES;
 	[player setCacheDirectory:[self getCacheRootDirectory]];
 }
 

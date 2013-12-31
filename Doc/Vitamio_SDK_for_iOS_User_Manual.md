@@ -1,12 +1,12 @@
 ************** Vitamio SDK for iOS User Manual **************
 
-* Version:				1.1.0
+* Version:				1.1.5
 * Release date:			2013-08-05
 
 
 # Description
 
-**Vitamio SDK for iOS** is a ObjC library for develop multimedia player on iOS
+**Vitamio SDK for iOS** is a Objective-C library for develop multimedia player on iOS
 platform. It is powered by [Yixia Ltd][d1]. It provide simple, high and
 convenient API for all iOS developer.
 
@@ -61,6 +61,7 @@ The bellow is a system framwork list of Vitamio dependency.
 	- libbz2.dylib
 	- libz.dylib
 	- libstdc++.dylib
+	- libiconv.dylib
 
 Follow `'Your target' | Build phases | Link Binary With Libraries`, Add the
 framworks or libraries show in above list to project.
@@ -123,7 +124,7 @@ Drag the header files and static libraries to project.
   e.g. `did prepared`, `playback completed`.
 
 >
-```ObjC
+```Objc
 	// This protocol method will be called when player did prepared, so we can
 	// call -start in here to start playing.
 	- (void)mediaPlayer:(VMediaPlayer *)player didPrepared:(id)arg

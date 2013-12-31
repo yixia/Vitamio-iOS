@@ -235,6 +235,11 @@
 			attributes = {
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = yixia;
+				TargetAttributes = {
+					F40EC4DD178A9B130068A7EA = {
+						DevelopmentTeam = 92TS993A24;
+					};
+				};
 			};
 			buildConfigurationList = F40EC4D9178A9B130068A7EA /* Build configuration list for PBXProject "Vitamio-Demo" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -385,8 +390,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
-				CODE_SIGN_IDENTITY = "iPhone Developer: Sun Zhenxing (Y7MU9373JE)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Sun Zhenxing (Y7MU9373JE)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Vitamio-Demo/Vitamio-Demo-Prefix.pch";
 				INFOPLIST_FILE = "Vitamio-Demo/Vitamio-Demo-Info.plist";
@@ -400,8 +405,8 @@
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "D5DDC70C-42BE-4A1C-9BFA-1A5E9249C937";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D5DDC70C-42BE-4A1C-9BFA-1A5E9249C937";
+				PROVISIONING_PROFILE = "84D4B765-5567-49FC-ADBA-FA91A6A31DE7";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "84D4B765-5567-49FC-ADBA-FA91A6A31DE7";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "../build/Debug-iphoneos/include/Vitamio ../Vitamio/include/Vitamio";
 				VALID_ARCHS = "armv7 armv7s";
@@ -413,6 +418,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Vitamio-Demo/Vitamio-Demo-Prefix.pch";
 				INFOPLIST_FILE = "Vitamio-Demo/Vitamio-Demo-Info.plist";
@@ -426,6 +433,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "84D4B765-5567-49FC-ADBA-FA91A6A31DE7";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "../build/Release-iphoneos/include/Vitamio ../Vitamio/include/Vitamio";
 				VALID_ARCHS = "armv7 armv7s";
@@ -468,8 +476,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = arm64;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Sun Zhenxing (Y7MU9373JE)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Sun Zhenxing (Y7MU9373JE)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Vitamio-Demo/Vitamio-Demo-Prefix.pch";
 				INFOPLIST_FILE = "Vitamio-Demo/Vitamio-Demo-Info.plist";
@@ -483,8 +491,8 @@
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "D5DDC70C-42BE-4A1C-9BFA-1A5E9249C937";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D5DDC70C-42BE-4A1C-9BFA-1A5E9249C937";
+				PROVISIONING_PROFILE = "84D4B765-5567-49FC-ADBA-FA91A6A31DE7";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "84D4B765-5567-49FC-ADBA-FA91A6A31DE7";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "../build/Debug_arm64-iphoneos/include/Vitamio ../Vitamio/include/Vitamio";
 				VALID_ARCHS = arm64;
@@ -521,6 +529,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = arm64;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Vitamio-Demo/Vitamio-Demo-Prefix.pch";
 				INFOPLIST_FILE = "Vitamio-Demo/Vitamio-Demo-Info.plist";
@@ -534,6 +544,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "84D4B765-5567-49FC-ADBA-FA91A6A31DE7";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "../build/Debug_arm64-iphoneos/include/Vitamio ../Vitamio/include/Vitamio";
 				VALID_ARCHS = arm64;

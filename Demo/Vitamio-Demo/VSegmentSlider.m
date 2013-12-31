@@ -32,7 +32,7 @@
 {
 	@synchronized(self) {
 		float rw = rect.size.width;
-		float ycrop = 7.0;
+		float ycrop = 12.0;
 		CGContextRef context = UIGraphicsGetCurrentContext();
 		CGContextSaveGState(context); {
 			CGContextSetRGBFillColor(context, 0.3794, 0.7968, 0.7911, 1.0);

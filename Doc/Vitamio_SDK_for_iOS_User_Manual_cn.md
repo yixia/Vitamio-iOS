@@ -1,6 +1,6 @@
 ************** Vitamio SDK for iOS User Manual **************
 
-* Version:				1.1.0
+* Version:				1.1.5
 * Release date:			2013-08-05
 
 
@@ -70,6 +70,7 @@ Vitamio SDK 依赖的系统框架和系统库如下:
 	- libbz2.dylib				压缩工具
 	- libz.dylib				压缩工具
 	- libstdc++.dylib			C++标准库
+	- libiconv.dylib			字符编码转换工具
 
 配置 target, 在 Xcode Build Phases | Link Binary With Libraries 中添加以上所列
 框架和库.

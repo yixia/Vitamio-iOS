@@ -1,3 +1,13 @@
+## v4.2.0
+
+- Add support arm64/x86_64 support;
+- Add support HLS AES-128 secret stream;
+- Add support download-playback HLS stream;
+- Support for custom FFmpeg;
+- Support swith video view between window and full screen;
+- Improve seek operation.
+
+
 ## v1.1.3
 
 - Add new API `setDataSegmentsSource:fileList:` for play media segments list;
