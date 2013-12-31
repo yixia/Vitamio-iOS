@@ -65,9 +65,7 @@
 
 	if (!mMPayer) {
 		mMPayer = [VMediaPlayer sharedInstance];
-		NSString *akey = @"wn9iKq0p9JSMfWz3G78ZvtlN";
-		NSString *skey = @"348b3e1ed183154034ce49decc8e1d69";
-		[mMPayer setupPlayerWithCarrierView:self.carrier withDelegate:self withAppKey:akey withSecretKey:skey];
+		[mMPayer setupPlayerWithCarrierView:self.carrier withDelegate:self];
 		[self setupObservers];
 	}
 }
