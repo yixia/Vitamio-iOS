@@ -155,8 +155,8 @@ A simple media player have worked! Please refer demo project and
 [Documents][A1] for detail about how to use Vitamio SDK.
 
 
-[A1]: https://github.com/yixia/Vitamio-iOS/tree/master/Doc
-[d1]: http://yixia.github.io/Vitamio-iOS
+[A1]: http://yixia.github.io/Vitamio-iOS
+[d1]: http://www.vitamio.org/en/
 
 
 (end)

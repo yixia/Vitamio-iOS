@@ -164,8 +164,8 @@ Vitamio SDK 依赖的系统框架和系统库如下:
 其它 API 及协议的使用方法详见 ["Vitamio SDK for iOS 参考文档"][A1].
 
 
-[A1]: https://github.com/yixia/Vitamio-iOS/tree/master/Doc
-[d1]: http://yixia.github.io/Vitamio-iOS
+[A1]: http://yixia.github.io/Vitamio-iOS
+[d1]: http://www.vitamio.org/en/
 
 
 (end)
