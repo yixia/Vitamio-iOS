@@ -156,7 +156,7 @@ A simple media player have worked! Please refer demo project and
 
 
 [A1]: https://github.com/yixia/Vitamio-iOS/tree/master/Doc
-[d1]: http://www.vitamio.org/en/
+[d1]: http://yixia.github.io/Vitamio-iOS
 
 
 (end)
