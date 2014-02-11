@@ -1,7 +1,7 @@
 ************** Vitamio SDK for iOS User Manual **************
 
-* Version:				1.1.5
-* Release date:			2013-08-05
+* Version:				4.2.0
+* Release date:			2014-01-05
 
 
 # 简介
